@@ -9,4 +9,8 @@
         <Company>Mishin870</Company>
     </PropertyGroup>
 
+    <ItemGroup>
+      <PackageReference Include="MaterialDesignThemes" Version="4.6.1" />
+    </ItemGroup>
+
 </Project>
