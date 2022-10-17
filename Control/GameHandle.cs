@@ -55,6 +55,9 @@ public abstract class BaseGameHandle : IGameHandle {
 		
 		Keyboard.Type(Key.Enter);
 	}
+
+	public string HandleTitle => Title();
+	public string HandleTitleCharacter => Title()[..1];
 }
 
 /// <summary>

@@ -1,0 +1,13 @@
+<Window x:Class="HuTaoHelper.AutologinSelectHandleWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:HuTaoHelper"
+        mc:Ignorable="d"
+        Loaded="AutologinSelectHandleWindow_OnLoaded"
+        Title="Choose a game instance" Height="450" Width="350">
+    <Grid>
+        <ListView Name="HandlesList" SelectionChanged="HandlesList_OnSelectionChanged" />
+    </Grid>
+</Window>

@@ -1,5 +1,8 @@
 ﻿namespace HuTaoHelper.Core; 
 
+/// <summary>
+/// Settings for autologin process (e.g. delays between operations in ms)
+/// </summary>
 public class AutologinSettings {
 	public int DelayBringToTop = 500;
 	public int DelaySelectAll = 200;

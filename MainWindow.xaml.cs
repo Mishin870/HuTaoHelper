@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using System.Windows.Controls;
 using HuTaoHelper.Control;
 using HuTaoHelper.Core;
 
@@ -8,17 +9,21 @@ namespace HuTaoHelper {
 			InitializeComponent();
 		}
 
-		private async void Test_OnClick(object sender, RoutedEventArgs e) {
+		private void MainWindow_OnLoaded(object sender, RoutedEventArgs e) {
 			Settings.Load();
-			
-			var handles = Automation.FindGameHandles();
-			if (handles.Count == 0) return;
-			
-			await handles[0].AutologinAsync(new Account {
-				Login = "test@test.ru",
-				Password = "test",
-				Name = "TestAccount"
-			});
+			RefreshAccounts();
+		}
+
+		public void RefreshAccounts() {
+			AccountsList.ItemsSource = Settings.Instance.Accounts.Values;
+			AccountsList.SelectionChanged += AccountsListOnSelectionChanged;
+		}
+
+		private async void AccountsListOnSelectionChanged(object sender, SelectionChangedEventArgs e) {
+			if (AccountsList.SelectedItem is Account account) {
+				await Automation.DoAutologinAsync(account);
+				AccountsList.SelectedItem = null;
+			}
 		}
 	}
 }

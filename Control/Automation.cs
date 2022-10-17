@@ -1,6 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
+using System.Windows;
+using HuTaoHelper.Core;
+using Microsoft.Web.WebView2.Core;
+using Microsoft.Web.WebView2.Wpf;
 
 namespace HuTaoHelper.Control;
 
@@ -23,5 +29,47 @@ public static class Automation {
 			.Select(process => new GeForceNowGameHandle(process)));
 
 		return result;
+	}
+
+	public static async Task DoAutologinAsync(Account account) {
+		var handles = FindGameHandles();
+
+		if (handles.Count == 0) {
+			// MessageBox.Show("Game not found");
+			return;
+		}
+
+		if (handles.Count == 1) {
+			await handles[0].AutologinAsync(account);
+			return;
+		}
+
+		var window = new AutologinSelectHandleWindow(account, handles);
+		window.ShowDialog();
+	}
+
+	/// <summary>
+	/// Configure WebView to use account profile folder /profiles/account.id
+	/// </summary>
+	/// <param name="webView2"></param>
+	/// <param name="account"></param>
+	public static async Task ConfigureAccountSessionAsync(WebView2 webView2, Account account) {
+		var profilePath = Path.Join(Directory.GetCurrentDirectory(), "profiles", account.Id.ToString());
+		Directory.CreateDirectory(profilePath);
+
+		var environment = await CoreWebView2Environment
+			.CreateAsync(null, profilePath);
+		await webView2.EnsureCoreWebView2Async(environment);
+	}
+	
+	/// <summary>
+	/// Try to authenticate given account through hoyolab. User needs to solve a captcha.
+	/// If authentication was successful, then LToken and LTuid will be saved into <c>Account</c> variable
+	/// </summary>
+	/// <param name="account"></param>
+	/// <returns>Is authentication was successful</returns>
+	public static bool AuthenticateHoyolab(Account account) {
+		var window = new HoyolabLoginWindow(account);
+		return window.ShowDialog() == true;
 	}
 }

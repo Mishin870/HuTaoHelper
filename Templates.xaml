@@ -1,0 +1,43 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:core="clr-namespace:HuTaoHelper.Core"
+                    xmlns:control="clr-namespace:HuTaoHelper.Control">
+    <DataTemplate x:Key="{DataTemplateKey {x:Type core:Account}}" DataType="{x:Type core:Account}">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="10" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Ellipse Grid.Column="0" Grid.Row="0" Width="30" Height="30" Fill="#FFFFE4C4" />
+            <Border Grid.Column="0" Grid.Row="0" Width="30" Height="30">
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding NameCharacter}" />
+            </Border>
+            <Border Grid.Column="2" Grid.Row="0" Height="30">
+                <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" Text="{Binding Name}" />
+            </Border>
+        </Grid>
+    </DataTemplate>
+    <DataTemplate x:Key="{DataTemplateKey {x:Type control:BaseGameHandle}}" DataType="{x:Type control:BaseGameHandle}">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="10" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Ellipse Grid.Column="0" Grid.Row="0" Width="30" Height="30" Fill="#FF7FE894" />
+            <Border Grid.Column="0" Grid.Row="0" Width="30" Height="30">
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding HandleTitleCharacter}" />
+            </Border>
+            <Border Grid.Column="2" Grid.Row="0" Height="30">
+                <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" Text="{Binding HandleTitle}" />
+            </Border>
+        </Grid>
+    </DataTemplate>
+</ResourceDictionary>
