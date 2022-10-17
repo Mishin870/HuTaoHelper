@@ -17,6 +17,10 @@ public static class Automation {
 
 		result.AddRange(Process.GetProcessesByName("GenshinImpact")
 			.Select(process => new NativeGameHandle(process)));
+		
+		result.AddRange(Process.GetProcessesByName("GeForceNOW")
+			.Where(process => process.MainWindowTitle.StartsWith("Genshin Impact"))
+			.Select(process => new GeForceNowGameHandle(process)));
 
 		return result;
 	}

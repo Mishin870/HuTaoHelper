@@ -7,6 +7,9 @@ using System.Windows.Input;
 
 namespace HuTaoHelper.Control;
 
+/// <summary>
+/// Keyboard utilities
+/// </summary>
 public static class Keyboard {
 	private static readonly Key[] EXTENDED_KEYS = {
 		Key.RightAlt,

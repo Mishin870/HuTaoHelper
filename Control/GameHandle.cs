@@ -15,40 +15,82 @@ public interface IGameHandle {
 	/// <param name="account">Account for login</param>
 	/// <returns></returns>
 	Task AutologinAsync(Account account);
+
+	/// <summary>
+	/// Title of the game for the selection if there are more than one game
+	/// </summary>
+	/// <returns></returns>
+	string Title();
 }
 
 /// <summary>
-/// Handle for game running on the user device natively
+/// Common base for most game handles
 /// </summary>
-public class NativeGameHandle : IGameHandle {
-	private readonly Process Process;
+public abstract class BaseGameHandle : IGameHandle {
+	public abstract Task AutologinAsync(Account account);
+	public abstract string Title();
 
-	public NativeGameHandle(Process process) {
-		Process = process;
-	}
-
-	public async Task AutologinAsync(Account account) {
+	protected static async Task SimpleLoginAsync(Process process, Account account) {
+		var settings = Settings.Instance.Autologin;
 		Keyboard.SwitchToEnglish();
 		
 		// Bring game to front
-		WindowHelper.BringProcessToFront(Process);
-		await Task.Delay(500);
+		WindowHelper.BringProcessToFront(process);
+		await Task.Delay(settings.DelayBringToTop);
 		
 		// Selecting all text to ensure we're typing in the clear textfield
 		Keyboard.Press(Key.LeftCtrl);
 		Keyboard.Type(Key.A);
 		Keyboard.Release(Key.LeftCtrl);
-		await Task.Delay(200);
+		await Task.Delay(settings.DelaySelectAll);
 		
 		Keyboard.Type(account.Login);
-		await Task.Delay(200);
+		await Task.Delay(settings.DelayInputLogin);
 
 		Keyboard.Type(Key.Tab);
-		await Task.Delay(200);
+		await Task.Delay(settings.DelayTabAfterInputLogin);
 		
 		Keyboard.Type(account.Password);
-		await Task.Delay(200);
+		await Task.Delay(settings.DelayInputPassword);
 		
 		Keyboard.Type(Key.Enter);
+	}
+}
+
+/// <summary>
+/// Handle for game running on the user device natively
+/// </summary>
+public class NativeGameHandle : BaseGameHandle {
+	private readonly Process Process;
+
+	public NativeGameHandle(Process process) {
+		Process = process;
+	}
+	
+	public override Task AutologinAsync(Account account) {
+		return SimpleLoginAsync(Process, account);
+	}
+
+	public override string Title() {
+		return "Genshin Impact";
+	}
+}
+
+/// <summary>
+/// Handle for game running on the GeForce NOW cloud
+/// </summary>
+public class GeForceNowGameHandle : BaseGameHandle {
+	private readonly Process Process;
+
+	public GeForceNowGameHandle(Process process) {
+		Process = process;
+	}
+
+	public override Task AutologinAsync(Account account) {
+		return SimpleLoginAsync(Process, account);
+	}
+
+	public override string Title() {
+		return "GeForce NOW - Genshin Impact";
 	}
 }

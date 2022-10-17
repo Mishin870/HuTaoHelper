@@ -9,6 +9,8 @@ namespace HuTaoHelper {
 		}
 
 		private async void Test_OnClick(object sender, RoutedEventArgs e) {
+			Settings.Load();
+			
 			var handles = Automation.FindGameHandles();
 			if (handles.Count == 0) return;
 			
