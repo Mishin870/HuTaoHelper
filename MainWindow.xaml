@@ -6,6 +6,8 @@
         mc:Ignorable="d"
         Title="HuTaoHelper" Height="450" Width="800">
     <Grid>
-
+        <StackPanel Margin="10">
+            <Button Name="Test" Click="Test_OnClick">Test</Button>
+        </StackPanel>
     </Grid>
 </Window>

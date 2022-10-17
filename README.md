@@ -11,7 +11,12 @@ hidden civilizations
  This tool aims to simplify your life as possible
 
 ### Features
-- Auto login for real game
-- Auto login for GeForce Now
-- Retrieving account information
-- Daily check-in in one click
+Some features are still in development
+- [X] Auto login for real game
+- [ ] Auto login for GeForce Now
+- [ ] Retrieving account information
+- [ ] Daily check-in in one click
+- [ ] Update system
+- [ ] Automation for web events
+- [ ] Minimizing to tray
+- [ ] Reminder system
