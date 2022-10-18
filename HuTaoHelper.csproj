@@ -7,6 +7,7 @@
         <UseWPF>true</UseWPF>
         <Authors>Mishin870</Authors>
         <Company>Mishin870</Company>
+        <ApplicationIcon>Images\Icon.ico</ApplicationIcon>
     </PropertyGroup>
 
     <ItemGroup>

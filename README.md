@@ -7,7 +7,17 @@ feels like to switch them everyday to complete
 daily commissions, to claim daily check-in reward or
 to do tasks for some web events
 
- This tool aims to simplify your life as possible
+This tool aims to simplify your life as possible
+
+### Known problems
+- Only one regional account supported at the moment 
+(you can have more than one account if you played on
+different regions. First found account will be used)
+
+### Setup and how to
+##### Installation
+- Download latest build from releases tab
+- Unpack and run
 
 ### Plans and features
 Some features are still in development
@@ -15,6 +25,7 @@ Some features are still in development
 - [X] Auto login for GeForce Now
 - [X] Daily check-in in one click
 - [X] Retrieving account information
+- [ ] Documentation and how to
 - [ ] Creating new accounts in visual way
 - [ ] Update system
 - [ ] Automation for web events

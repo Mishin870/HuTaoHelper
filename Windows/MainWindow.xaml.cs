@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.ComponentModel;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using HuTaoHelper.Control;
@@ -60,5 +61,9 @@ public partial class MainWindow {
 		
 		Logging.PostEvent("Accounts information refreshed");
 		RefreshAccounts();
+	}
+
+	private void MainWindow_OnClosing(object? sender, CancelEventArgs e) {
+		Settings.Save();
 	}
 }
