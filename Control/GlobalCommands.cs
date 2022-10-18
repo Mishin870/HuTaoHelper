@@ -6,5 +6,5 @@ namespace HuTaoHelper.Control;
 /// Global command definitions to help using events inside data templates
 /// </summary>
 public static class GlobalCommands {
-	public static readonly RoutedCommand CHECK_IN = new("Check-In", typeof(GlobalCommands));
+	public static readonly RoutedCommand CheckIn = new("Check-In", typeof(GlobalCommands));
 }

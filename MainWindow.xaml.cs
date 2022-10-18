@@ -10,7 +10,7 @@ namespace HuTaoHelper {
 	public partial class MainWindow {
 		public MainWindow() {
 			InitializeComponent();
-			CommandBindings.Add(new CommandBinding(GlobalCommands.CHECK_IN, DoCheckIn));
+			CommandBindings.Add(new CommandBinding(GlobalCommands.CheckIn, DoCheckIn));
 		}
 
 		private async void DoCheckIn(object sender, ExecutedRoutedEventArgs e) {
@@ -36,7 +36,7 @@ namespace HuTaoHelper {
 		}
 
 		private void MainWindow_OnLoaded(object sender, RoutedEventArgs e) {
-			EventsLog.MessageQueue = Logging.EVENT_QUEUE;
+			EventsLog.MessageQueue = Logging.EventQueue;
 			Settings.Load();
 			RefreshAccounts();
 		}

@@ -11,7 +11,7 @@ namespace HuTaoHelper.Control;
 /// Keyboard utilities
 /// </summary>
 public static class Keyboard {
-	private static readonly Key[] EXTENDED_KEYS = {
+	private static readonly Key[] ExtendedKeys = {
 		Key.RightAlt,
 		Key.RightCtrl,
 		Key.NumLock,
@@ -109,7 +109,7 @@ public static class Keyboard {
 		}
 
 		mi.Union.keyboardInput.DwFlags = num;
-		if (EXTENDED_KEYS.Contains(key)) {
+		if (ExtendedKeys.Contains(key)) {
 			mi.Union.keyboardInput.DwFlags |= 1;
 		}
 

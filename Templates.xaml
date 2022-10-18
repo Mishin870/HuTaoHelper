@@ -24,7 +24,7 @@
                     <TextBlock HorizontalAlignment="Left" Text="{Binding Status}" Foreground="Silver"/>
                 </StackPanel>
             </Border>
-            <Button Grid.Column="3" Grid.Row="0" Command="{x:Static control:GlobalCommands.CHECK_IN}">
+            <Button Grid.Column="3" Grid.Row="0" Command="{x:Static control:GlobalCommands.CheckIn}">
                 <materialDesign:PackIcon Kind="HandCoin" />
             </Button>
         </Grid>
