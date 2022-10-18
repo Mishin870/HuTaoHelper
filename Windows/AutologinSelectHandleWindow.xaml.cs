@@ -4,7 +4,7 @@ using System.Windows.Controls;
 using HuTaoHelper.Control;
 using HuTaoHelper.Core;
 
-namespace HuTaoHelper; 
+namespace HuTaoHelper.Windows; 
 
 public partial class AutologinSelectHandleWindow {
 	private readonly Account Account;

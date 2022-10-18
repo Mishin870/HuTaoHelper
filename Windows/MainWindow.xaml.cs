@@ -5,7 +5,7 @@ using HuTaoHelper.Control;
 using HuTaoHelper.Core;
 using HuTaoHelper.Web;
 
-namespace HuTaoHelper {
+namespace HuTaoHelper.Windows {
 	public partial class MainWindow {
 		public MainWindow() {
 			InitializeComponent();

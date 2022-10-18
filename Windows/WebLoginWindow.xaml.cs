@@ -3,7 +3,7 @@ using System.Windows;
 using HuTaoHelper.Control;
 using HuTaoHelper.Core;
 
-namespace HuTaoHelper;
+namespace HuTaoHelper.Windows;
 
 public partial class WebLoginWindow {
 	private readonly Account Account;
