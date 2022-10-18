@@ -34,18 +34,19 @@ public static class Automation {
 	public static async Task DoAutologinAsync(Account account) {
 		var handles = FindGameHandles();
 
-		if (handles.Count == 0) {
-			// MessageBox.Show("Game not found");
-			return;
+		switch (handles.Count) {
+			case 0:
+				Logging.PostEvent("Running game instance not found", 500);
+				return;
+			case 1:
+				await handles[0].AutologinAsync(account);
+				return;
+			default: {
+				var window = new AutologinSelectHandleWindow(account, handles);
+				window.ShowDialog();
+				break;
+			}
 		}
-
-		if (handles.Count == 1) {
-			await handles[0].AutologinAsync(account);
-			return;
-		}
-
-		var window = new AutologinSelectHandleWindow(account, handles);
-		window.ShowDialog();
 	}
 
 	/// <summary>

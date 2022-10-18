@@ -3,10 +3,25 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         Loaded="MainWindow_OnLoaded"
         Title="HuTaoHelper" Height="450" Width="500">
     <Grid>
-        <ListView Name="AccountsList" />
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        
+        <ListView Name="AccountsList" SelectionChanged="AccountsList_OnSelectionChanged">
+            <ListView.ItemContainerStyle> 
+                <Style TargetType="ListViewItem" BasedOn="{StaticResource MaterialDesignListBoxItem}"> 
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch"></Setter> 
+                </Style> 
+            </ListView.ItemContainerStyle> 
+        </ListView>
+        <materialDesign:Snackbar Name="EventsLog" VerticalAlignment="Bottom"/>
     </Grid>
 </Window>
