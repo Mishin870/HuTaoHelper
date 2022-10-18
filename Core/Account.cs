@@ -1,4 +1,7 @@
-﻿using Newtonsoft.Json;
+﻿using System;
+using System.Threading.Tasks;
+using HuTaoHelper.Web;
+using Newtonsoft.Json;
 
 namespace HuTaoHelper.Core;
 
@@ -29,6 +32,10 @@ public class Account {
 	/// User status from game
 	/// </summary>
 	public string? Status { get; set; }
+	/// <summary>
+	/// Web user avatar
+	/// </summary>
+	public string? AvatarUrl { get; set; }
 
 	/// <summary>
 	/// Cookies for api authentication
@@ -49,4 +56,37 @@ public class Account {
 	/// </summary>
 	[JsonIgnore]
 	public string DisplayNameCharacter => DisplayName[..1];
+
+	/// <summary>
+	/// Refresh information about game account (first found)
+	/// </summary>
+	/// <returns>Is refreshing was successful</returns>
+	public async Task<bool> RefreshGameInformation() {
+		try {
+			if (!Cookies.IsValid()) {
+				return false;
+			}
+
+			var cookie = Cookies.ToCookie();
+			var client = new ApiClient(cookie);
+			var accountInfo = await client.GetUserAccountInfo();
+			var gameAccountsInfo = await client.GetGameAccountsInfo(accountInfo.Data.Info.AccountId);
+
+			foreach (var account in gameAccountsInfo.Data.Accounts) {
+				AvatarUrl = accountInfo.Data.Info.AvatarUrl;
+				Name = account.Nickname;
+				if (long.TryParse(account.AccountUid, out var uid)) {
+					Uid = uid;
+				}
+
+				Settings.Save();
+
+				return true;
+			}
+
+			return false;
+		} catch (Exception e) {
+			return false;
+		}
+	}
 }

@@ -23,7 +23,11 @@ public static class Constants {
 	public static string ApiHomeRef = "aHR0cHM6Ly9hY3QuaG95b2xhYi5jb20v";
 	public static string ApiSign = "aHR0cHM6Ly9zZy1oazRlLWFwaS5ob3lvbGFiLmNvbS9ldmVudC9zb2wvc2lnbg==";
 	public static string ApiSignRef = "aHR0cHM6Ly9hY3QuaG95b2xhYi5jb20veXMvZXZlbnQvc2lnbmluLXNlYS12My9pbmRleC5odG1sP2FjdF9pZD0=";
-	
+	public static string ApiUserAccount = "aHR0cHM6Ly9iYnMtYXBpLW9zLmhveW9sYWIuY29tL2NvbW11bml0eS91c2VyL3dhcGkvZ2V0VXNlckZ1bGxJbmZvP2dpZD0y";
+	public static string ApiUserAccountRef = "aHR0cHM6Ly9hY3QuaG95b2xhYi5jb20v";
+	public static string ApiGameAccounts = "aHR0cHM6Ly9iYnMtYXBpLW9zLmhveW9sYWIuY29tL2dhbWVfcmVjb3JkL2NhcmQvd2FwaS9nZXRHYW1lUmVjb3JkQ2FyZD91aWQ9";
+	public static string ApiGameAccountsRef = "aHR0cHM6Ly9hY3QuaG95b2xhYi5jb20v";
+
 	public static readonly string[] ApiRequiredCookies = {
 		"X01IWVVVSUQ=", "REVWSUNFRlBfU0VFRF9JRA==", "REVWSUNFRlBfU0VFRF9USU1F",
 		"REVWSUNFRlA=", "bWkxOG5MYW5n", "bHRva2Vu", "bHR1aWQ=", "Y29va2llX3Rva2Vu", "YWNjb3VudF9pZA=="
@@ -48,6 +52,10 @@ public static class Constants {
 		ApiHomeRef = Extract(ApiHomeRef);
 		ApiSign = Extract(ApiSign);
 		ApiSignRef = Extract(ApiSignRef);
+		ApiUserAccount = Extract(ApiUserAccount);
+		ApiUserAccountRef = Extract(ApiUserAccountRef);
+		ApiGameAccounts = Extract(ApiGameAccounts);
+		ApiGameAccountsRef = Extract(ApiGameAccountsRef);
 		
 		for (var i = 0; i < ApiRequiredCookies.Length; i++) {
 			ApiRequiredCookies[i] = Extract(ApiRequiredCookies[i]);

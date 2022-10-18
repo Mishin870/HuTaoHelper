@@ -14,14 +14,15 @@
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
-            <Ellipse Grid.Column="0" Grid.Row="0" Width="30" Height="30" Fill="#FFFFE4C4" />
-            <Border Grid.Column="0" Grid.Row="0" Width="30" Height="30">
-                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding DisplayNameCharacter}" />
-            </Border>
+            <Ellipse Grid.Column="0" Grid.Row="0" Width="30" Height="30">
+                <Ellipse.Fill>
+                    <ImageBrush ImageSource="{Binding AvatarUrl}" />
+                </Ellipse.Fill>
+            </Ellipse>
             <Border Grid.Column="2" Grid.Row="0">
                 <StackPanel VerticalAlignment="Center" Orientation="Vertical">
                     <TextBlock HorizontalAlignment="Left" Text="{Binding DisplayName}" />
-                    <TextBlock HorizontalAlignment="Left" Text="{Binding Status}" Foreground="Silver"/>
+                    <TextBlock HorizontalAlignment="Left" Text="{Binding Uid}" Foreground="Silver"/>
                 </StackPanel>
             </Border>
             <Button Grid.Column="3" Grid.Row="0" Command="{x:Static control:GlobalCommands.CheckIn}">

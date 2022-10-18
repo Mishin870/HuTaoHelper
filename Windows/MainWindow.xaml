@@ -6,22 +6,32 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         Loaded="MainWindow_OnLoaded"
-        Title="HuTaoHelper" Height="450" Width="500">
+        Title="HuTaoHelper" Height="550" Width="550">
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         
-        <ListView Name="AccountsList" SelectionChanged="AccountsList_OnSelectionChanged">
+        <Menu Grid.Row="0" materialDesign:MenuAssist.TopLevelMenuItemHeight="40">
+            <MenuItem Header="Tools">
+                <MenuItem
+                    Header="Refresh accounts info"
+                    Name="RefreshAccountsMenu"
+                    Click="RefreshAccountsMenu_OnClick"
+                    Icon="{materialDesign:PackIcon Kind=CloudRefresh}"></MenuItem>
+            </MenuItem>
+        </Menu>
+        <ListView Grid.Row="1" Name="AccountsList" SelectionChanged="AccountsList_OnSelectionChanged">
             <ListView.ItemContainerStyle> 
                 <Style TargetType="ListViewItem" BasedOn="{StaticResource MaterialDesignListBoxItem}"> 
-                    <Setter Property="HorizontalContentAlignment" Value="Stretch"></Setter> 
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch"></Setter>
                 </Style> 
             </ListView.ItemContainerStyle> 
         </ListView>
-        <materialDesign:Snackbar Name="EventsLog" VerticalAlignment="Bottom"/>
+        <materialDesign:Snackbar Grid.Row="1" Name="EventsLog" VerticalAlignment="Bottom"/>
     </Grid>
 </Window>

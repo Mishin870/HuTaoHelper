@@ -14,8 +14,8 @@ Some features are still in development
 - [X] Auto login for real game
 - [X] Auto login for GeForce Now
 - [X] Daily check-in in one click
+- [X] Retrieving account information
 - [ ] Creating new accounts in visual way
-- [ ] Retrieving account information
 - [ ] Update system
 - [ ] Automation for web events
 - [ ] Minimizing to tray

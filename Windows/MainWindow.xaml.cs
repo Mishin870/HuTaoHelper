@@ -52,4 +52,13 @@ public partial class MainWindow {
 			AccountsList.SelectedItem = null;
 		}
 	}
+
+	private async void RefreshAccountsMenu_OnClick(object sender, RoutedEventArgs e) {
+		foreach (var account in Settings.Instance.Accounts.Values) {
+			await account.RefreshGameInformation();
+		}
+		
+		Logging.PostEvent("Accounts information refreshed");
+		RefreshAccounts();
+	}
 }

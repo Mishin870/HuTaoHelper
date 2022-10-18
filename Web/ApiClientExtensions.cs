@@ -1,3 +1,4 @@
+using System;
 using System.Threading.Tasks;
 using HuTaoHelper.Core;
 using HuTaoHelper.Web.Client;
@@ -32,5 +33,26 @@ public static class ApiClientExtensions {
 				message.WithReferer(
 					$"{Constants.ApiSignRef}{Constants.ApiActId}");
 			});
+	}
+	
+	public static async Task<UserAccountInfoEntity> GetUserAccountInfo(this ApiClient client) {
+		return await client.GetRequestAsync<UserAccountInfoEntity>(
+			$"{Constants.ApiUserAccount}{Timestamp()}",
+			message => {
+				message.WithReferer($"{Constants.ApiUserAccountRef}");
+			});
+	}
+	
+	public static async Task<GameAccountsInfoEntity> GetGameAccountsInfo(this ApiClient client, string accountId) {
+		return await client.GetRequestAsync<GameAccountsInfoEntity>(
+			$"{Constants.ApiGameAccounts}{accountId}",
+			message => {
+				message.WithReferer($"{Constants.ApiGameAccountsRef}");
+			});
+	}
+
+	private static long Timestamp() {
+		const int NUMBER = 10000 * 1000;
+		return (DateTime.Now.ToUniversalTime().Ticks - 621355968000000000) / NUMBER;
 	}
 }
