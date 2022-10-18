@@ -75,7 +75,7 @@ public class NativeGameHandle : BaseGameHandle {
 	}
 
 	public override string Title() {
-		return "Genshin Impact";
+		return Constants.GameName;
 	}
 }
 
@@ -94,6 +94,6 @@ public class GeForceNowGameHandle : BaseGameHandle {
 	}
 
 	public override string Title() {
-		return "GeForce NOW - Genshin Impact";
+		return $"GeForce NOW - {Constants.GameName}";
 	}
 }

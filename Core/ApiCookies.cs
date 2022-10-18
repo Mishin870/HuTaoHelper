@@ -6,11 +6,6 @@ using Microsoft.Web.WebView2.Core;
 namespace HuTaoHelper.Core; 
 
 public class ApiCookies {
-	private static readonly string[] RequiredCookies = {
-		"_MHYUUID", "DEVICEFP_SEED_ID", "DEVICEFP_SEED_TIME", "DEVICEFP", "mi18nLang", 
-		"ltoken", "ltuid", "cookie_token", "account_id"
-	};
-	
 	public Dictionary<string, string> Values { get; set; } = new();
 
 	/// <summary>
@@ -18,7 +13,7 @@ public class ApiCookies {
 	/// </summary>
 	/// <returns></returns>
 	public bool IsValid() {
-		return RequiredCookies.All(required => Values.ContainsKey(required)
+		return Constants.ApiRequiredCookies.All(required => Values.ContainsKey(required)
 		                                       && !string.IsNullOrWhiteSpace(Values[required]));
 	}
 	
@@ -34,7 +29,7 @@ public class ApiCookies {
 			remapped[cookie.Name] = cookie.Value;
 		}
 
-		foreach (var required in RequiredCookies) {
+		foreach (var required in Constants.ApiRequiredCookies) {
 			if (!remapped.ContainsKey(required)) {
 				return false;
 			} else {

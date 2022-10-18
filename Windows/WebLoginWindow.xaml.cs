@@ -33,7 +33,7 @@ var checker = setInterval(function () {
 }, 200);
 		");
 		
-		Browser.Source = new Uri("https://hoyolab.com/home");
+		Browser.Source = new Uri(Constants.AuthenticationBrowserSource);
 	}
 
 	private void NoAuthentication() {

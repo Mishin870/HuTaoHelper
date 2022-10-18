@@ -3,26 +3,26 @@ using System.Net.Http.Headers;
 using System.Text;
 using Newtonsoft.Json;
 
-namespace HuTaoHelper.Web.Client {
-	/// <summary>
-	/// Body entity for post requests
-	/// </summary>
-	public class JsonContent : ByteArrayContent {
-		private object Data { get; set; }
+namespace HuTaoHelper.Web.Client; 
 
-		public JsonContent(object data) : base(ToBytes(data)) {
-			Data = data;
-			Headers.ContentType = new MediaTypeHeaderValue("application/json");
-		}
+/// <summary>
+/// Body entity for post requests
+/// </summary>
+public class JsonContent : ByteArrayContent {
+	private object Data { get; set; }
 
-		private static byte[] ToBytes(object data) {
-			var rawData = JsonConvert.SerializeObject(data);
+	public JsonContent(object data) : base(ToBytes(data)) {
+		Data = data;
+		Headers.ContentType = new MediaTypeHeaderValue("application/json");
+	}
 
-			return Encoding.UTF8.GetBytes(rawData);
-		}
+	private static byte[] ToBytes(object data) {
+		var rawData = JsonConvert.SerializeObject(data);
 
-		public JsonContent Clone() {
-			return new JsonContent(Data);
-		}
+		return Encoding.UTF8.GetBytes(rawData);
+	}
+
+	public JsonContent Clone() {
+		return new JsonContent(Data);
 	}
 }

@@ -1,4 +1,4 @@
-﻿namespace HuTaoHelper {
-	public partial class App {
-	}
+﻿namespace HuTaoHelper; 
+
+public partial class App {
 }

@@ -21,11 +21,11 @@ public static class Automation {
 	public static List<IGameHandle> FindGameHandles() {
 		var result = new List<IGameHandle>();
 
-		result.AddRange(Process.GetProcessesByName("GenshinImpact")
+		result.AddRange(Process.GetProcessesByName(Constants.GameProcessName)
 			.Select(process => new NativeGameHandle(process)));
 		
 		result.AddRange(Process.GetProcessesByName("GeForceNOW")
-			.Where(process => process.MainWindowTitle.StartsWith("Genshin Impact"))
+			.Where(process => process.MainWindowTitle.StartsWith(Constants.GameName))
 			.Select(process => new GeForceNowGameHandle(process)));
 
 		return result;
