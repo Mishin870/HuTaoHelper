@@ -1,5 +1,4 @@
-﻿using System;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using HuTaoHelper.Control;
@@ -22,10 +21,10 @@ namespace HuTaoHelper {
 				return;
 			}
 
-			if (!string.IsNullOrWhiteSpace(account.LToken) && !string.IsNullOrWhiteSpace(account.LTuid)) {
+			if (account.Cookies.IsValid()) {
 				await DailyCheckIn.DoCheckInAsync(account);
 			} else {
-				if (Automation.AuthenticateHoyolab(account)) {
+				if (Automation.AuthenticateApi(account)) {
 					Settings.Save();
 					RefreshAccounts();
 					Logging.PostEvent("Account succesfully authenticated!");

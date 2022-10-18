@@ -3,7 +3,6 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Windows;
 using HuTaoHelper.Core;
 using Microsoft.Web.WebView2.Core;
 using Microsoft.Web.WebView2.Wpf;
@@ -64,13 +63,13 @@ public static class Automation {
 	}
 	
 	/// <summary>
-	/// Try to authenticate given account through hoyolab. User needs to solve a captcha.
+	/// Try to authenticate given account through api. User needs to solve a captcha.
 	/// If authentication was successful, then LToken and LTuid will be saved into <c>Account</c> variable
 	/// </summary>
 	/// <param name="account"></param>
 	/// <returns>Is authentication was successful</returns>
-	public static bool AuthenticateHoyolab(Account account) {
-		var window = new HoyolabLoginWindow(account);
+	public static bool AuthenticateApi(Account account) {
+		var window = new WebLoginWindow(account);
 		return window.ShowDialog() == true;
 	}
 }

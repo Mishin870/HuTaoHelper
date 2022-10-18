@@ -5,10 +5,10 @@ using HuTaoHelper.Core;
 
 namespace HuTaoHelper;
 
-public partial class HoyolabLoginWindow {
+public partial class WebLoginWindow {
 	private readonly Account Account;
 
-	public HoyolabLoginWindow(Account account) {
+	public WebLoginWindow(Account account) {
 		Account = account;
 		InitializeComponent();
 	}
@@ -37,7 +37,7 @@ var checker = setInterval(function () {
 	}
 
 	private void NoAuthentication() {
-		MessageBox.Show("I don't see authentication :(");
+		MessageBox.Show("I don't see authentication data :(");
 	}
 
 	private async void Save_OnClick(object sender, RoutedEventArgs e) {
@@ -47,28 +47,10 @@ var checker = setInterval(function () {
 			return;
 		}
 
-		string ltoken = null!;
-		string ltuid = null!;
-		
-		foreach (var cookie in cookies) {
-			switch (cookie.Name) {
-				case "ltoken":
-					ltoken = cookie.Value;
-					break;
-				case "ltuid":
-					ltuid = cookie.Value;
-					break;
-			}
-		}
-
-		if (ltoken == null || ltuid == null) {
+		if (Account.Cookies.ParseFrom(cookies)) {
+			DialogResult = true;
+		} else {
 			NoAuthentication();
-			return;
 		}
-
-		Account.LToken = ltoken;
-		Account.LTuid = ltuid;
-
-		DialogResult = true;
 	}
 }

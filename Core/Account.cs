@@ -29,15 +29,11 @@ public class Account {
 	/// User status from game
 	/// </summary>
 	public string? Status { get; set; }
-	
+
 	/// <summary>
-	/// Data for hoyolab authentication
+	/// Cookies for api authentication
 	/// </summary>
-	public string? LToken { get; set; }
-	/// <summary>
-	/// Data for hoyolab authentication
-	/// </summary>
-	public string? LTuid { get; set; }
+	public ApiCookies Cookies { get; set; } = new();
 	/// <summary>
 	/// User id for telegram bot
 	/// </summary>

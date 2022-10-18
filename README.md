@@ -14,8 +14,9 @@ hidden civilizations
 Some features are still in development
 - [X] Auto login for real game
 - [X] Auto login for GeForce Now
+- [X] Daily check-in in one click
+- [ ] Creating new accounts in visual way
 - [ ] Retrieving account information
-- [ ] Daily check-in in one click
 - [ ] Update system
 - [ ] Automation for web events
 - [ ] Minimizing to tray

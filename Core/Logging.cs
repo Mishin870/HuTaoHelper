@@ -12,10 +12,12 @@ public static class Logging {
 	/// <summary>
 	/// Post a text message to application event log. By default it's a SnackBar at the bottom
 	/// </summary>
-	/// <param name="text">Text to show</param>
+	/// <param name="text">Text or any object to show (will be converted to string)</param>
 	/// <param name="durationMs">Duration of the message in milliseconds</param>
-	public static void PostEvent(string text, int durationMs = 1000) {
-		EventQueue.Enqueue(text, null, null, 
+	public static void PostEvent(object? text, int durationMs = 1000) {
+		if (text == null) return;
+		
+		EventQueue.Enqueue($"{text}", null, null, 
 			null, false, false,
 			TimeSpan.FromMilliseconds(durationMs));
 	}
