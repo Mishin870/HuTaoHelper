@@ -17,6 +17,11 @@ public partial class MainWindow {
 		CommandBindings.Add(new CommandBinding(GlobalCommands.CheckIn, DoCheckIn));
 		CommandBindings.Add(new CommandBinding(GlobalCommands.AutoLogin, DoAutoLogin));
 		ViewCallbacks.RefreshAccountsList = RefreshAccounts;
+		Application.Current.Exit += Application_OnExit;
+	}
+
+	private void Application_OnExit(object sender, ExitEventArgs e) {
+		Scheduler.ChannelShutdown.RunAll();
 	}
 
 	private async void DoCheckIn(object sender, ExecutedRoutedEventArgs e) {

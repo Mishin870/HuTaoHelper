@@ -71,11 +71,16 @@ public static class Automation {
 	public static void RemoveAccountSession(Account account) {
 		var profilePath = Path.Join(Directory.GetCurrentDirectory(), "profiles", account.Id.ToString());
 
-		try {
-			Directory.Delete(profilePath, true);
-		} catch (Exception e) {
-			Logging.PostEvent(e);
-		}
+		// User profile folder may be still locked by WebView2 (I got IOException last time)
+		// So we're scheduling it to the application exit time, thanks to
+		// this answer: https://stackoverflow.com/a/72503795/9630962
+		Scheduler.ChannelShutdown.Post(() => {
+			try {
+				Directory.Delete(profilePath, true);
+			} catch (Exception) {
+				// ignored
+			}
+		});
 	}
 	
 	/// <summary>
