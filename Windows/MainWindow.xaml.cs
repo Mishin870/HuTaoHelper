@@ -7,7 +7,7 @@ using HuTaoHelper.Core;
 using HuTaoHelper.Visual;
 using HuTaoHelper.Web;
 
-namespace HuTaoHelper.Windows; 
+namespace HuTaoHelper.Windows;
 
 public partial class MainWindow {
 	public MainWindow() {
@@ -48,18 +48,11 @@ public partial class MainWindow {
 		AccountsList.ItemsSource = Settings.Instance.Accounts.Values;
 	}
 
-	private async void AccountsList_OnSelectionChanged(object sender, SelectionChangedEventArgs e) {
-		if (AccountsList.SelectedItem is Account account) {
-			await Automation.DoAutologinAsync(account);
-			AccountsList.SelectedItem = null;
-		}
-	}
-
 	private async void RefreshAccountsMenu_OnClick(object sender, RoutedEventArgs e) {
 		foreach (var account in Settings.Instance.Accounts.Values) {
 			await account.RefreshGameInformation();
 		}
-		
+
 		Logging.PostEvent("Accounts information refreshed");
 	}
 
@@ -76,5 +69,15 @@ public partial class MainWindow {
 				await window.Account.RefreshGameInformation();
 			}
 		}
+	}
+
+	private async void OnAccountClicked(object sender, MouseButtonEventArgs e) {
+		if (sender is ListViewItem { DataContext: Account account }) {
+			await Automation.DoAutologinAsync(account);
+		}
+	}
+
+	private void AccountsList_OnSelectionChanged(object sender, SelectionChangedEventArgs e) {
+		AccountsList.SelectedItem = null;
 	}
 }

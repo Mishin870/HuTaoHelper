@@ -33,10 +33,21 @@
             </MenuItem>
         </Menu>
         <ListView Grid.Row="1" Name="AccountsList" SelectionChanged="AccountsList_OnSelectionChanged">
-            <ListView.ItemContainerStyle> 
-                <Style TargetType="ListViewItem" BasedOn="{StaticResource MaterialDesignListBoxItem}"> 
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem" BasedOn="{StaticResource MaterialDesignListBoxItem}">
+                    <EventSetter Event="PreviewMouseLeftButtonDown" Handler="OnAccountClicked" /> 
                     <Setter Property="HorizontalContentAlignment" Value="Stretch"></Setter>
-                </Style> 
+                    <Setter Property="ContextMenu">
+                        <Setter.Value>
+                            <ContextMenu>
+                                <MenuItem Header="Change title" />
+                                <MenuItem Header="Reauthenticate" />
+                                <Separator/>
+                                <MenuItem Header="Remove"/>
+                            </ContextMenu>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
             </ListView.ItemContainerStyle> 
         </ListView>
         <materialDesign:Snackbar Grid.Row="1" Name="EventsLog" VerticalAlignment="Bottom"/>
