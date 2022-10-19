@@ -1,6 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 
-namespace HuTaoHelper.Visual.ViewModels;
+namespace HuTaoHelper.View.ViewModels;
 
 [SuppressMessage("ReSharper", "InconsistentNaming")]
 public class AddAccountViewModel : ViewModelBase {

@@ -64,6 +64,15 @@ public static class Automation {
 	}
 	
 	/// <summary>
+	/// Remove configured WebView profile folder /profiles/account.id
+	/// </summary>
+	/// <param name="account">Account to remove</param>
+	public static void RemoveAccountSession(Account account) {
+		var profilePath = Path.Join(Directory.GetCurrentDirectory(), "profiles", account.Id.ToString());
+		Directory.Delete(profilePath, true);
+	}
+	
+	/// <summary>
 	/// Try to authenticate given account through api. User needs to solve a captcha.
 	/// If authentication was successful, then LToken and LTuid will be saved into <c>Account</c> variable
 	/// </summary>

@@ -17,39 +17,47 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        
+
         <Menu Grid.Row="0" materialDesign:MenuAssist.TopLevelMenuItemHeight="40">
             <MenuItem Header="Tools">
                 <MenuItem
                     Header="Refresh accounts info"
                     Name="RefreshAccountsMenu"
                     Click="RefreshAccountsMenu_OnClick"
-                    Icon="{materialDesign:PackIcon Kind=CloudRefresh}"></MenuItem>
+                    Icon="{materialDesign:PackIcon Kind=CloudRefresh}">
+                </MenuItem>
                 <MenuItem
                     Header="Add an acount"
                     Name="AddAccount"
                     Click="AddAccount_OnClick"
-                    Icon="{materialDesign:PackIcon Kind=AccountPlus}"></MenuItem>
+                    Icon="{materialDesign:PackIcon Kind=AccountPlus}">
+                </MenuItem>
             </MenuItem>
         </Menu>
         <ListView Grid.Row="1" Name="AccountsList" SelectionChanged="AccountsList_OnSelectionChanged">
             <ListView.ItemContainerStyle>
                 <Style TargetType="ListViewItem" BasedOn="{StaticResource MaterialDesignListBoxItem}">
-                    <EventSetter Event="PreviewMouseLeftButtonDown" Handler="OnAccountClicked" /> 
+                    <EventSetter Event="PreviewMouseLeftButtonDown" Handler="OnAccountClicked" />
                     <Setter Property="HorizontalContentAlignment" Value="Stretch"></Setter>
                     <Setter Property="ContextMenu">
                         <Setter.Value>
                             <ContextMenu>
-                                <MenuItem Header="Change title" />
-                                <MenuItem Header="Reauthenticate" />
-                                <Separator/>
-                                <MenuItem Header="Remove"/>
+                                <MenuItem Name="AccountChangeTitleMenu" Header="Change title" />
+                                <MenuItem Name="AccountReauthenticateMenu" Header="Reauthenticate" />
+                                <Separator />
+                                <MenuItem Name="AccountRemoveMenu" Header="Remove">
+                                    <MenuItem.Style>
+                                        <Style TargetType="MenuItem" BasedOn="{StaticResource MaterialDesignMenuItem}">
+                                            <EventSetter Event="Click" Handler="AccountRemoveMenu_OnClick"/>
+                                        </Style>
+                                    </MenuItem.Style>
+                                </MenuItem>
                             </ContextMenu>
                         </Setter.Value>
                     </Setter>
                 </Style>
-            </ListView.ItemContainerStyle> 
+            </ListView.ItemContainerStyle>
         </ListView>
-        <materialDesign:Snackbar Grid.Row="1" Name="EventsLog" VerticalAlignment="Bottom"/>
+        <materialDesign:Snackbar Grid.Row="1" Name="EventsLog" VerticalAlignment="Bottom" />
     </Grid>
 </Window>

@@ -1,6 +1,7 @@
 using System;
 using System.Threading.Tasks;
 using HuTaoHelper.Core;
+using HuTaoHelper.Web.Client;
 
 namespace HuTaoHelper.Web;
 

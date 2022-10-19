@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Net.Http;
 using System.Threading.Tasks;
-using HuTaoHelper.Web.Client;
 using Newtonsoft.Json;
 
-namespace HuTaoHelper.Web; 
+namespace HuTaoHelper.Web.Client; 
 
 /// <summary>
 /// Web api simple wrapper

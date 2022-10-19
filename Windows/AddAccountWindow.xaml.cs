@@ -1,6 +1,6 @@
 using System.Windows;
 using HuTaoHelper.Core;
-using HuTaoHelper.Visual.ViewModels;
+using HuTaoHelper.View.ViewModels;
 
 namespace HuTaoHelper.Windows; 
 

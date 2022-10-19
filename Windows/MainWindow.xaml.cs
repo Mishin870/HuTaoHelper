@@ -1,10 +1,11 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using HuTaoHelper.Control;
 using HuTaoHelper.Core;
-using HuTaoHelper.Visual;
+using HuTaoHelper.View;
 using HuTaoHelper.Web;
 
 namespace HuTaoHelper.Windows;
@@ -13,17 +14,11 @@ public partial class MainWindow {
 	public MainWindow() {
 		InitializeComponent();
 		CommandBindings.Add(new CommandBinding(GlobalCommands.CheckIn, DoCheckIn));
-		VisualCallbacks.RefreshAccountsList = RefreshAccounts;
+		ViewCallbacks.RefreshAccountsList = RefreshAccounts;
 	}
 
 	private async void DoCheckIn(object sender, ExecutedRoutedEventArgs e) {
-		if (e.OriginalSource is not Button source) {
-			return;
-		}
-
-		if (source.DataContext is not Account account) {
-			return;
-		}
+		if (e.OriginalSource is not Button { DataContext: Account account }) return;
 
 		if (account.Cookies.IsValid()) {
 			await DailyCheckIn.DoCheckInAsync(account);
@@ -40,7 +35,10 @@ public partial class MainWindow {
 	private void MainWindow_OnLoaded(object sender, RoutedEventArgs e) {
 		EventsLog.MessageQueue = Logging.EventQueue;
 		Settings.Load();
-		Constants.Load();
+	}
+
+	private void MainWindow_OnClosing(object? sender, CancelEventArgs e) {
+		Settings.Save();
 	}
 
 	public void RefreshAccounts() {
@@ -54,10 +52,6 @@ public partial class MainWindow {
 		}
 
 		Logging.PostEvent("Accounts information refreshed");
-	}
-
-	private void MainWindow_OnClosing(object? sender, CancelEventArgs e) {
-		Settings.Save();
 	}
 
 	private async void AddAccount_OnClick(object sender, RoutedEventArgs e) {
@@ -79,5 +73,20 @@ public partial class MainWindow {
 
 	private void AccountsList_OnSelectionChanged(object sender, SelectionChangedEventArgs e) {
 		AccountsList.SelectedItem = null;
+	}
+
+	private static void DoAccountContextAction(RoutedEventArgs e, Action<Account> action) {
+		if (e.Source is not MenuItem {
+			    Parent: ContextMenu { PlacementTarget: ListViewItem { DataContext: Account account } }
+		    }) return;
+
+		action(account);
+	}
+
+	private void AccountRemoveMenu_OnClick(object sender, RoutedEventArgs e) {
+		DoAccountContextAction(e, account => {
+			Settings.Instance.RemoveAccount(account);
+			Settings.Save();
+		});
 	}
 }

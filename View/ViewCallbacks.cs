@@ -1,10 +1,10 @@
 using System;
 
-namespace HuTaoHelper.Visual; 
+namespace HuTaoHelper.View; 
 
 /// <summary>
 /// Global GUI callbacks for preventing extra dependencies
 /// </summary>
-public static class VisualCallbacks {
+public static class ViewCallbacks {
 	public static Action RefreshAccountsList = () => { };
 }

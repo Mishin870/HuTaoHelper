@@ -1,10 +1,9 @@
 using System;
 using System.Threading.Tasks;
 using HuTaoHelper.Core;
-using HuTaoHelper.Web.Client;
 using HuTaoHelper.Web.Entities;
 
-namespace HuTaoHelper.Web; 
+namespace HuTaoHelper.Web.Client; 
 
 public static class ApiClientExtensions {
 	public static async Task<SignDayEntity> GetSignDay(this ApiClient client) {

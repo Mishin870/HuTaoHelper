@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using HuTaoHelper.Web;
+using HuTaoHelper.Web.Client;
 using Newtonsoft.Json;
 
 namespace HuTaoHelper.Core;

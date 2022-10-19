@@ -5,7 +5,7 @@ Automation tool and account manager for anime game
 If you have 2 or more accounts, then you know how it
 feels like to switch them everyday to complete
 daily commissions, to claim daily check-in reward or
-to do tasks for some web events
+complete some web events
 
 This tool aims to simplify your life as possible
 
@@ -35,3 +35,4 @@ Some features are still in development
 - [ ] Minimizing to tray
 - [ ] Reward claiming notification (e.g. windows, telegram, email)
 - [ ] Reminder system
+- [ ] Background service for check-in

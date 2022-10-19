@@ -2,7 +2,8 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:core="clr-namespace:HuTaoHelper.Core"
                     xmlns:control="clr-namespace:HuTaoHelper.Control"
-                    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes">
+                    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+                    xmlns:view="clr-namespace:HuTaoHelper.View">
     <DataTemplate x:Key="{DataTemplateKey {x:Type core:Account}}" DataType="{x:Type core:Account}">
         <Grid>
             <Grid.RowDefinitions>
@@ -25,7 +26,7 @@
                     <TextBlock HorizontalAlignment="Left" FontSize="18" Text="{Binding Uid}" Foreground="Silver"/>
                 </StackPanel>
             </Border>
-            <Button Grid.Column="3" Grid.Row="0" Command="{x:Static control:GlobalCommands.CheckIn}">
+            <Button Grid.Column="3" Grid.Row="0" Command="{x:Static view:GlobalCommands.CheckIn}">
                 <materialDesign:PackIcon Kind="HandCoin" />
             </Button>
         </Grid>
