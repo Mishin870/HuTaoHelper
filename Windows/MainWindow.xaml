@@ -37,7 +37,6 @@
         <ListView Grid.Row="1" Name="AccountsList" SelectionChanged="AccountsList_OnSelectionChanged">
             <ListView.ItemContainerStyle>
                 <Style TargetType="ListViewItem" BasedOn="{StaticResource MaterialDesignListBoxItem}">
-                    <EventSetter Event="PreviewMouseLeftButtonDown" Handler="OnAccountClicked" />
                     <Setter Property="HorizontalContentAlignment" Value="Stretch"></Setter>
                     <Setter Property="ContextMenu">
                         <Setter.Value>
