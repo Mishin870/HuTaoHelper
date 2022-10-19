@@ -7,6 +7,7 @@
         mc:Ignorable="d"
         Loaded="MainWindow_OnLoaded"
         Closing="MainWindow_OnClosing"
+        ResizeMode="CanResizeWithGrip"
         Title="HuTaoHelper" Height="550" Width="550">
     <Grid>
         <Grid.RowDefinitions>
@@ -24,6 +25,11 @@
                     Name="RefreshAccountsMenu"
                     Click="RefreshAccountsMenu_OnClick"
                     Icon="{materialDesign:PackIcon Kind=CloudRefresh}"></MenuItem>
+                <MenuItem
+                    Header="Add an acount"
+                    Name="AddAccount"
+                    Click="AddAccount_OnClick"
+                    Icon="{materialDesign:PackIcon Kind=AccountPlus}"></MenuItem>
             </MenuItem>
         </Menu>
         <ListView Grid.Row="1" Name="AccountsList" SelectionChanged="AccountsList_OnSelectionChanged">

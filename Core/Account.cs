@@ -27,15 +27,16 @@ public class Account {
 	/// <summary>
 	/// User nickname from game
 	/// </summary>
-	public string? Name { get; set; }
+	public string? Name { get; set; } = "NotAuthenticatedUser";
 	/// <summary>
 	/// User status from game
 	/// </summary>
 	public string? Status { get; set; }
 	/// <summary>
-	/// Web user avatar
+	/// Web user avatar. Default value is a google "no avatar" picture
 	/// </summary>
-	public string? AvatarUrl { get; set; }
+	public string? AvatarUrl { get; set; } =
+		"https://lh3.googleusercontent.com/-cXXaVVq8nMM/AAAAAAAAAAI/AAAAAAAAAKI/_Y1WfBiSnRI/photo.jpg?sz=300";
 
 	/// <summary>
 	/// Cookies for api authentication

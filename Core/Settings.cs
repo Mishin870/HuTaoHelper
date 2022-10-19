@@ -2,6 +2,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Text;
+using HuTaoHelper.Visual;
 using Newtonsoft.Json;
 
 namespace HuTaoHelper.Core; 
@@ -27,6 +28,7 @@ public class Settings {
 	/// </summary>
 	public static void Save() {
 		File.WriteAllText(MakeFilePath(), JsonConvert.SerializeObject(Instance), Encoding.UTF8);
+		VisualCallbacks.RefreshAccountsList();
 	}
 
 	/// <summary>
@@ -41,11 +43,13 @@ public class Settings {
 
 			if (settings != null) {
 				Instance = settings;
+				VisualCallbacks.RefreshAccountsList();
 				return;
 			}
 		}
 
 		Instance = new Settings();
+		VisualCallbacks.RefreshAccountsList();
 	}
 
 	/// <summary>

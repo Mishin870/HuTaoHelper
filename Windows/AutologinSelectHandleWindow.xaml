@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:HuTaoHelper"
         mc:Ignorable="d"
         Loaded="AutologinSelectHandleWindow_OnLoaded"
+        ResizeMode="CanResize"
         Title="Choose a game instance" Height="450" Width="350">
     <Grid>
         <ListView Name="HandlesList" SelectionChanged="HandlesList_OnSelectionChanged" />
