@@ -13,7 +13,7 @@ public partial class WebLoginWindow {
 		InitializeComponent();
 	}
 
-	private async void TestWindow_OnLoaded(object sender, RoutedEventArgs e) {
+	private async void WebLoginWindow_OnLoaded(object sender, RoutedEventArgs e) {
 		await Automation.ConfigureAccountSessionAsync(Browser, Account);
 		
 		await Browser.CoreWebView2.AddScriptToExecuteOnDocumentCreatedAsync(@"

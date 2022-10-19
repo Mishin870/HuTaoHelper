@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
 using System.Windows.Input;
 using HuTaoHelper.Control;
 using HuTaoHelper.Core;
@@ -49,8 +50,9 @@ public partial class MainWindow {
 	}
 
 	public void RefreshAccounts() {
-		AccountsList.ItemsSource = null;
-		AccountsList.ItemsSource = Settings.Instance.Accounts.Values;
+		var items = Settings.Instance.Accounts.Values;
+		AccountsList.ItemsSource = items;
+		CollectionViewSource.GetDefaultView(items).Refresh();
 	}
 
 	private async void RefreshAccountsMenu_OnClick(object sender, RoutedEventArgs e) {

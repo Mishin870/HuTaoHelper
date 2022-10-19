@@ -34,7 +34,7 @@ public static class DailyCheckIn {
 			var givenAward = homeEntity.Data.Awards[currentDay];
 			Logging.PostEvent($"Reward claimed: {givenAward.Name} x{givenAward.Count}");
 		} catch (Exception e) {
-			Logging.PostEvent(e.ToString());
+			Logging.PostEvent(e);
 		}
 	}
 }

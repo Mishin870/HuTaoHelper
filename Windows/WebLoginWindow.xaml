@@ -6,7 +6,7 @@
         xmlns:wv2="clr-namespace:Microsoft.Web.WebView2.Wpf;assembly=Microsoft.Web.WebView2.Wpf"
         xmlns:local="clr-namespace:HuTaoHelper"
         mc:Ignorable="d"
-        Loaded="TestWindow_OnLoaded"
+        Loaded="WebLoginWindow_OnLoaded"
         ResizeMode="CanResize"
         Title="Authentication" Height="800" Width="1200">
     <Grid>

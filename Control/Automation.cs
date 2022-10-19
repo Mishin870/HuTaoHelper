@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
@@ -69,7 +70,12 @@ public static class Automation {
 	/// <param name="account">Account to remove</param>
 	public static void RemoveAccountSession(Account account) {
 		var profilePath = Path.Join(Directory.GetCurrentDirectory(), "profiles", account.Id.ToString());
-		Directory.Delete(profilePath, true);
+
+		try {
+			Directory.Delete(profilePath, true);
+		} catch (Exception e) {
+			Logging.PostEvent(e);
+		}
 	}
 	
 	/// <summary>
