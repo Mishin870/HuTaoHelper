@@ -26,8 +26,12 @@ Some features are still in development
 - [X] Daily check-in in one click
 - [X] Retrieving account information
 - [X] Visual way to create a new account
+- [ ] Ability to edit accounts
+- [ ] Ability to remove accounts
+- [ ] Accounts reordering
 - [ ] Documentation and how to
 - [ ] Update system
 - [ ] Automation for web events
 - [ ] Minimizing to tray
+- [ ] Reward claiming notification (e.g. windows, telegram, email)
 - [ ] Reminder system
