@@ -23,7 +23,7 @@ after account deletion
 - Unpack it and run `HuTaoHelper.exe`
 
 ##### Create an account
-1. Go to `Tools -> Add an account`
+1. Go to `Tools -> Add an account`\
 ![preview](Images/CreateAccount1.png)
 2. Fill in all required fields and click `Add`\
 (_you can also override account title in the
@@ -31,7 +31,7 @@ accounts list, this can be changed later_)
 ![preview](Images/CreateAccount2.png)
 3. The app will then require you to authenticate
 to "one well-known site". Log in to your account
-and then click on the button above
+and then click on the button above\
 ![preview](Images/CreateAccount3.png)
 4. Wait for 2-3 seconds and your name and avatar
 will appear in the accounts list
@@ -45,7 +45,7 @@ will appear in the accounts list
 1. Start the game and open the login window\
 (_both for GeForceNOW and native game versions_)
 2. Click on the login field so that the
-caret appears there
+caret appears there\
 ![preview](Images/Autologin1.png)
 3. Via `Alt + tab` go back to the application
 and click once on your account
@@ -63,7 +63,7 @@ just repeat steps 2-3
 > windows task scheduler
 
 ##### Manage accounts
-You can edit accounts by right clicking on them
+You can edit accounts by right clicking on them\
 ![preview](Images/ManageAccounts1.png)\
 _Change title is still in development :(_
 
