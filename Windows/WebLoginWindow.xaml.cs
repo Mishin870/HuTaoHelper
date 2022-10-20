@@ -48,6 +48,7 @@ var checker = setInterval(function () {
 		}
 
 		if (Account.Cookies.ParseFrom(cookies)) {
+			Settings.Save();
 			DialogResult = true;
 		} else {
 			NoAuthentication();

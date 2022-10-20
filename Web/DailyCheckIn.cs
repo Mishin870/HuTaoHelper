@@ -19,7 +19,7 @@ public static class DailyCheckIn {
 			var signDayEntity = (await client.GetSignDay()).ValidateResponseCode();
 
 			if (signDayEntity.Data.IsSign) {
-				Logging.PostEvent("Already claimed chedk-in reward");
+				Logging.PostEvent("Already claimed check-in reward");
 				return;
 			}
 			

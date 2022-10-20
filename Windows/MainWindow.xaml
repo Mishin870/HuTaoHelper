@@ -21,7 +21,7 @@
         <Menu Grid.Row="0" materialDesign:MenuAssist.TopLevelMenuItemHeight="40">
             <MenuItem Header="Tools">
                 <MenuItem
-                    Header="Refresh accounts info"
+                    Header="Refresh all accounts info"
                     Name="RefreshAccountsMenu"
                     Click="RefreshAccountsMenu_OnClick"
                     Icon="{materialDesign:PackIcon Kind=CloudRefresh}">
@@ -41,8 +41,21 @@
                     <Setter Property="ContextMenu">
                         <Setter.Value>
                             <ContextMenu>
-                                <MenuItem Name="AccountChangeTitleMenu" Header="Change title" />
-                                <MenuItem Name="AccountReauthenticateMenu" Header="Reauthenticate" />
+                                <MenuItem Name="AccountChangeTitleMenu" Header="Change title" IsEnabled="False" />
+                                <MenuItem Name="AccountReauthenticateMenu" Header="Reauthenticate">
+                                    <MenuItem.Style>
+                                        <Style TargetType="MenuItem" BasedOn="{StaticResource MaterialDesignMenuItem}">
+                                            <EventSetter Event="Click" Handler="AccountReauthenticateMenu_OnClick"/>
+                                        </Style>
+                                    </MenuItem.Style>
+                                </MenuItem>
+                                <MenuItem Name="AccountRefreshMenu" Header="Refresh information">
+                                    <MenuItem.Style>
+                                        <Style TargetType="MenuItem" BasedOn="{StaticResource MaterialDesignMenuItem}">
+                                            <EventSetter Event="Click" Handler="AccountRefreshMenu_OnClick"/>
+                                        </Style>
+                                    </MenuItem.Style>
+                                </MenuItem>
                                 <Separator />
                                 <MenuItem Name="AccountRemoveMenu" Header="Remove">
                                     <MenuItem.Style>

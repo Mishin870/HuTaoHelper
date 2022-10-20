@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -83,18 +84,33 @@ public partial class MainWindow {
 		AccountsList.SelectedItem = null;
 	}
 
-	private static void DoAccountContextAction(RoutedEventArgs e, Action<Account> action) {
+	private static async void DoAccountContextAction(RoutedEventArgs e, Func<Account, Task> action) {
 		if (e.Source is not MenuItem {
 			    Parent: ContextMenu { PlacementTarget: ListViewItem { DataContext: Account account } }
 		    }) return;
 
-		action(account);
+		await action(account);
 	}
 
 	private void AccountRemoveMenu_OnClick(object sender, RoutedEventArgs e) {
 		DoAccountContextAction(e, account => {
 			Settings.Instance.RemoveAccount(account);
 			Settings.Save();
+			return Task.CompletedTask;
+		});
+	}
+	
+	private void AccountReauthenticateMenu_OnClick(object sender, RoutedEventArgs e) {
+		DoAccountContextAction(e, account => {
+			Automation.AuthenticateApi(account);
+			return Task.CompletedTask;
+		});
+	}
+	
+	private async void AccountRefreshMenu_OnClick(object sender, RoutedEventArgs e) {
+		DoAccountContextAction(e, async account => {
+			await account.RefreshGameInformation();
+			Logging.PostEvent($"Account \"{account.Name}\" information refreshed");
 		});
 	}
 }
