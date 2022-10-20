@@ -9,6 +9,12 @@ complete some web events
 
 This tool aims to simplify your life as possible
 
+### Requirements
+- .net 6.0+ (with desktop runtime)\
+You can get it [here](https://dotnet.microsoft.com/en-us/download/dotnet/6.0)\
+![preview](Images/Runtime.png)
+- Edge browser (I think it's included into your windows)
+
 ### Known problems
 - Only one regional account supported at the moment 
 (you can have more than one account if you played on
@@ -42,6 +48,11 @@ will appear in the accounts list
 > ![preview](Images/CreateAccount4.png)
 
 ##### Autologin into game
+> **!Important notice!**\
+> The app must be run as administrator
+> otherwise it won't work\
+> ![preview](Images/RunAsAdministrator.png)
+
 1. Start the game and open the login window\
 (_both for GeForceNOW and native game versions_)
 2. Click on the login field so that the
