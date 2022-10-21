@@ -1,13 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using HuTaoHelper.Core;
-using HuTaoHelper.Windows;
+using HuTaoHelper.View;
+using HuTaoHelper.View.Dialogs;
+using HuTaoHelper.View.Utils;
+using HuTaoHelper.View.ViewModels;
+using HuTaoHelper.View.Windows;
+using MaterialDesignThemes.Wpf;
 using Microsoft.Web.WebView2.Core;
 using Microsoft.Web.WebView2.Wpf;
+using Constants = HuTaoHelper.Core.Constants;
 
 namespace HuTaoHelper.Control;
 
@@ -43,8 +48,13 @@ public static class Automation {
 				await handles[0].AutologinAsync(account);
 				return;
 			default: {
-				var window = new AutologinSelectHandleWindow(account, handles);
-				window.ShowDialog();
+				var view = new GameHandleSelectionDialog {
+					DataContext = new GameHandleSelectionViewModel {
+						Account = account,
+						Handles = handles
+					}
+				};
+				await DialogHost.Show(view, ViewUtils.DIALOG_ROOT);
 				break;
 			}
 		}
@@ -63,33 +73,14 @@ public static class Automation {
 			.CreateAsync(null, profilePath);
 		await webView2.EnsureCoreWebView2Async(environment);
 	}
-	
-	/// <summary>
-	/// Remove configured WebView profile folder /profiles/account.id
-	/// </summary>
-	/// <param name="account">Account to remove</param>
-	public static void RemoveAccountSession(Account account) {
-		var profilePath = Path.Join(Directory.GetCurrentDirectory(), "profiles", account.Id.ToString());
 
-		// User profile folder may be still locked by WebView2 (I got IOException last time)
-		// So we're scheduling it to the application exit time, thanks to
-		// this answer: https://stackoverflow.com/a/72503795/9630962
-		Scheduler.ChannelShutdown.Post(() => {
-			try {
-				Directory.Delete(profilePath, true);
-			} catch (Exception) {
-				// ignored
-			}
-		});
-	}
-	
 	/// <summary>
-	/// Try to authenticate given account through api. User needs to solve a captcha.
-	/// If authentication was successful, then LToken and LTuid will be saved into <c>Account</c> variable
+	/// Try to authenticate given account through website. User needs to solve a captcha.
+	/// If authentication was successful, then cookies will be saved into <c>Account</c> variable
 	/// </summary>
 	/// <param name="account"></param>
 	/// <returns>Is authentication was successful</returns>
-	public static bool AuthenticateApi(Account account) {
+	public static bool AuthenticateWeb(Account account) {
 		var window = new WebLoginWindow(account);
 		return window.ShowDialog() == true;
 	}

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Threading.Tasks;
-using HuTaoHelper.Web;
 using HuTaoHelper.Web.Client;
 using Newtonsoft.Json;
 
@@ -20,7 +19,7 @@ public class Account {
 	public long Uid { get; set; }
 	public string Login { get; set; } = null!;
 	public string Password { get; set; } = null!;
-	
+
 	/// <summary>
 	/// Custom user title
 	/// </summary>
@@ -87,7 +86,7 @@ public class Account {
 			}
 
 			return false;
-		} catch (Exception e) {
+		} catch (Exception) {
 			return false;
 		}
 	}

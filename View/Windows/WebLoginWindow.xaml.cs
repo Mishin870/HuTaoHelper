@@ -1,9 +1,12 @@
 using System;
+using System.Threading.Tasks;
 using System.Windows;
 using HuTaoHelper.Control;
 using HuTaoHelper.Core;
+using HuTaoHelper.View.Utils;
+using Constants = HuTaoHelper.Core.Constants;
 
-namespace HuTaoHelper.Windows;
+namespace HuTaoHelper.View.Windows;
 
 public partial class WebLoginWindow {
 	private readonly Account Account;
@@ -15,7 +18,7 @@ public partial class WebLoginWindow {
 
 	private async void WebLoginWindow_OnLoaded(object sender, RoutedEventArgs e) {
 		await Automation.ConfigureAccountSessionAsync(Browser, Account);
-		
+
 		await Browser.CoreWebView2.AddScriptToExecuteOnDocumentCreatedAsync(@"
 var checker = setInterval(function () {
 	var form = document.getElementsByClassName('login-form-container')[0];
@@ -32,18 +35,18 @@ var checker = setInterval(function () {
 	clearInterval(checker);
 }, 200);
 		");
-		
+
 		Browser.Source = new Uri(Constants.AuthenticationBrowserSource);
 	}
 
-	private void NoAuthentication() {
-		MessageBox.Show("I don't see authentication data :(");
+	private static async Task NoAuthenticationAsync() {
+		await ViewUtils.ShowMessageAsync("I don't see authentication data :(", ViewUtils.DIALOG_WEB_LOGIN);
 	}
 
 	private async void Save_OnClick(object sender, RoutedEventArgs e) {
 		var cookies = await Browser.CoreWebView2.CookieManager.GetCookiesAsync(null);
 		if (cookies == null) {
-			NoAuthentication();
+			await NoAuthenticationAsync();
 			return;
 		}
 
@@ -51,7 +54,7 @@ var checker = setInterval(function () {
 			Settings.Save();
 			DialogResult = true;
 		} else {
-			NoAuthentication();
+			await NoAuthenticationAsync();
 		}
 	}
 }

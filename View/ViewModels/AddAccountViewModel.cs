@@ -1,4 +1,5 @@
 using System.Diagnostics.CodeAnalysis;
+using HuTaoHelper.Core;
 
 namespace HuTaoHelper.View.ViewModels;
 
@@ -21,5 +22,20 @@ public class AddAccountViewModel : ViewModelBase {
 	public string? Title {
 		get => title;
 		set => SetProperty(ref title, value);
+	}
+
+	public Account? ToAccount() {
+		if (string.IsNullOrWhiteSpace(login) || string.IsNullOrWhiteSpace(password)) {
+			return null;
+		}
+		
+		var account = Settings.Instance.CreateAccount(login, password);
+
+		if (!string.IsNullOrWhiteSpace(title)) {
+			account.Title = title;
+		}
+		
+		Settings.Save();
+		return account;
 	}
 }

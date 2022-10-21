@@ -8,7 +8,7 @@
         <Authors>Mishin870</Authors>
         <Company>Mishin870</Company>
         <ApplicationIcon>Images\Icon.ico</ApplicationIcon>
-        <AssemblyVersion>1.0.0</AssemblyVersion>
+        <AssemblyVersion>1.0.1</AssemblyVersion>
     </PropertyGroup>
 
     <ItemGroup>

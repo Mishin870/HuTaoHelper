@@ -33,7 +33,7 @@ after account deletion
 ![preview](Images/CreateAccount1.png)
 2. Fill in all required fields and click `Add`\
 (_you can also override account title in the
-accounts list, this can be changed later_)
+accounts list, this can be changed later_)\
 ![preview](Images/CreateAccount2.png)
 3. The app will then require you to authenticate
 to "one well-known site". Log in to your account
@@ -50,7 +50,7 @@ will appear in the accounts list
 ##### Autologin into game
 > **!Important notice!**\
 > The app must be run as administrator
-> otherwise it won't work\
+> otherwise autologin won't work\
 > ![preview](Images/RunAsAdministrator.png)
 
 1. Start the game and open the login window\
@@ -75,8 +75,7 @@ just repeat steps 2-3
 
 ##### Manage accounts
 You can edit accounts by right clicking on them\
-![preview](Images/ManageAccounts1.png)\
-_Change title is still in development :(_
+![preview](Images/ManageAccounts1.png)
 
 ### F.A.Q.
 Q: **What if you use my passwords?**\
@@ -115,8 +114,9 @@ Some features are still in development
 - [X] Visual way to create a new account
 - [X] Ability to remove accounts
 - [X] Documentation and how to
+- [X] Migration service for settings
+- [X] Ability to edit accounts
 - [ ] Localization to other languages
-- [ ] Ability to edit accounts
 - [ ] Accounts reordering
 - [ ] Update system
 - [ ] Automation for web events

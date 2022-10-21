@@ -2,8 +2,8 @@
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Text;
-using HuTaoHelper.Control;
-using HuTaoHelper.View;
+using HuTaoHelper.Core.Migrations;
+using HuTaoHelper.View.Utils;
 using Newtonsoft.Json;
 
 namespace HuTaoHelper.Core; 
@@ -18,7 +18,16 @@ public class Settings {
 
 	public AutologinSettings Autologin = new();
 	public Dictionary<int, Account> Accounts = new();
+	
+	/// <summary>
+	/// Current free id for new accounts
+	/// </summary>
 	public int IdCounter;
+	
+	/// <summary>
+	/// Settings version for migrations
+	/// </summary>
+	public long Version = Constants.SettingsVersion;
 
 	private static string MakeFilePath() {
 		return Path.Join(Directory.GetCurrentDirectory(), FILE_NAME);
@@ -29,7 +38,7 @@ public class Settings {
 	/// </summary>
 	public static void Save() {
 		File.WriteAllText(MakeFilePath(), JsonConvert.SerializeObject(Instance), Encoding.UTF8);
-		ViewCallbacks.RefreshAccountsList();
+		ViewUtils.CallbackRefreshAccountsList();
 	}
 
 	/// <summary>
@@ -40,17 +49,22 @@ public class Settings {
 
 		if (File.Exists(path)) {
 			var content = File.ReadAllText(path, Encoding.UTF8);
+
+			var migrator = new SettingsMigrator(content);
+			migrator.Run();
+			content = migrator.GetResult();
+			
 			var settings = JsonConvert.DeserializeObject<Settings>(content);
 
 			if (settings != null) {
 				Instance = settings;
-				ViewCallbacks.RefreshAccountsList();
+				ViewUtils.CallbackRefreshAccountsList();
 				return;
 			}
 		}
 
 		Instance = new Settings();
-		ViewCallbacks.RefreshAccountsList();
+		ViewUtils.CallbackRefreshAccountsList();
 	}
 
 	/// <summary>
@@ -77,6 +91,5 @@ public class Settings {
 	/// <param name="account">Account to remove</param>
 	public void RemoveAccount(Account account) {
 		Accounts.Remove(account.Id);
-		Automation.RemoveAccountSession(account);
 	}
 }

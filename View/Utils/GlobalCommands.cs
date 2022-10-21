@@ -1,6 +1,6 @@
 using System.Windows.Input;
 
-namespace HuTaoHelper.View; 
+namespace HuTaoHelper.View.Utils; 
 
 /// <summary>
 /// Global command definitions to help using events inside data templates

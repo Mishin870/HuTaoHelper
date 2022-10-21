@@ -9,6 +9,8 @@ namespace HuTaoHelper.Core;
 /// </summary>
 [SuppressMessage("Usage", "CA2211:Non-constant fields should not be visible")]
 public static class Constants {
+	public static readonly long SettingsVersion = 1;
+	
 	public static readonly string GameName = Extract("R2Vuc2hpbiBJbXBhY3Q=");
 	public static readonly string GameProcessName = Extract("R2Vuc2hpbkltcGFjdA==");
 	public static readonly string AuthenticationBrowserSource = Extract("aHR0cHM6Ly9ob3lvbGFiLmNvbS9ob21l");
@@ -31,8 +33,7 @@ public static class Constants {
 	public static readonly string[] ApiRequiredCookies = {
 		Extract("X01IWVVVSUQ="), Extract("REVWSUNFRlBfU0VFRF9JRA=="),
 		Extract("REVWSUNFRlBfU0VFRF9USU1F"), Extract("REVWSUNFRlA="),
-		Extract("bWkxOG5MYW5n"), Extract("bHRva2Vu"), Extract("bHR1aWQ="),
-		Extract("Y29va2llX3Rva2Vu"), Extract("YWNjb3VudF9pZA==")
+		Extract("bWkxOG5MYW5n"), Extract("bHRva2Vu"), Extract("bHR1aWQ=")
 	};
 
 	#endregion

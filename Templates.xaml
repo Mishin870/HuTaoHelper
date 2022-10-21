@@ -3,11 +3,12 @@
                     xmlns:core="clr-namespace:HuTaoHelper.Core"
                     xmlns:control="clr-namespace:HuTaoHelper.Control"
                     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-                    xmlns:view="clr-namespace:HuTaoHelper.View">
+                    xmlns:view="clr-namespace:HuTaoHelper.View"
+                    xmlns:utils="clr-namespace:HuTaoHelper.View.Utils">
     <DataTemplate x:Key="{DataTemplateKey {x:Type core:Account}}" DataType="{x:Type core:Account}">
         <Border Background="Transparent">
             <Border.InputBindings>
-                <MouseBinding MouseAction="LeftClick" Command="{x:Static view:GlobalCommands.AutoLogin}"/>
+                <MouseBinding MouseAction="LeftClick" Command="{x:Static utils:GlobalCommands.AutoLogin}"/>
             </Border.InputBindings>
             <Grid>
                 <Grid.RowDefinitions>
@@ -30,7 +31,7 @@
                         <TextBlock HorizontalAlignment="Left" FontSize="18" Text="{Binding Uid}" Foreground="Silver"/>
                     </StackPanel>
                 </Border>
-                <Button Grid.Column="3" Grid.Row="0" Command="{x:Static view:GlobalCommands.CheckIn}">
+                <Button Grid.Column="3" Grid.Row="0" Command="{x:Static utils:GlobalCommands.CheckIn}">
                     <materialDesign:PackIcon Kind="HandCoin" />
                 </Button>
             </Grid>

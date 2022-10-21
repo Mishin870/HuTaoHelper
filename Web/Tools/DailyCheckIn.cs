@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using HuTaoHelper.Core;
 using HuTaoHelper.Web.Client;
 
-namespace HuTaoHelper.Web;
+namespace HuTaoHelper.Web.Tools;
 
 /// <summary>
 /// Wrapper for daily check-in logic
