@@ -37,16 +37,20 @@ public partial class MainWindow {
 
 	private async void DoCheckIn(object sender, ExecutedRoutedEventArgs e) {
 		if (e.OriginalSource is FrameworkElement { DataContext: Account account }) {
-			if (account.Cookies.IsValid()) {
-				await DailyCheckIn.DoCheckInAsync(account);
-			} else {
-				if (Automation.AuthenticateWeb(account)) {
-					Settings.Save();
-					Logging.PostEvent("Account succesfully authenticated!");
+			await ViewUtils.DoWithPreloaderAsync(() => {
+				if (account.Cookies.IsValid()) {
+					DailyCheckIn.DoCheckInAsync(account).Wait();
 				} else {
-					Logging.PostEvent("Error authenticating account");
+					Application.Current.Dispatcher.Invoke((Action)delegate{
+						if (Automation.AuthenticateWeb(account)) {
+							Settings.Save();
+							Logging.PostEvent("Account succesfully authenticated!");
+						} else {
+							Logging.PostEvent("Error authenticating account");
+						}
+					});
 				}
-			}
+			});
 		}
 	}
 
