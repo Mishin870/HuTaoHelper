@@ -1,5 +1,5 @@
 # HuTaoHelper
-[[EN](README.md) | RU]
+[[EN](README.md) | RU(README.ru.md) | [UA]]
 
 Менеджер акаунтів та інструмент автоматизації для
 однієї аніме гри
