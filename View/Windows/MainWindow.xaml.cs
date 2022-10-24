@@ -47,9 +47,9 @@ public partial class MainWindow {
 					Application.Current.Dispatcher.Invoke((Action)delegate {
 						if (Automation.AuthenticateWeb(account)) {
 							Settings.Save();
-							Logging.PostEvent("Account succesfully authenticated!");
+							Logging.PostEvent(Translations.LocAuthenticationSuccessful);
 						} else {
-							Logging.PostEvent("Error authenticating account");
+							Logging.PostEvent(Translations.LocAuthenticationError);
 						}
 					});
 				}
@@ -90,7 +90,7 @@ public partial class MainWindow {
 				account.RefreshGameInformation().Wait();
 			}
 
-			Logging.PostEvent("Accounts information refreshed");
+			Logging.PostEvent(Translations.LocAllAccountsRefreshed);
 		});
 	}
 
@@ -158,7 +158,8 @@ public partial class MainWindow {
 	private async void AccountRefreshMenu_OnClick(object sender, RoutedEventArgs e) {
 		await DoAccountContextAction(e, async account => {
 			await account.RefreshGameInformation();
-			Logging.PostEvent($"Account \"{account.Name}\" information refreshed");
+			Logging.PostEvent(Translations.LocAccountRefreshed
+				.Replace("$1", account.Name));
 		});
 	}
 

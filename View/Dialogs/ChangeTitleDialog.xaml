@@ -4,7 +4,6 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-             xmlns:validation="clr-namespace:HuTaoHelper.View.Validation"
              xmlns:system="clr-namespace:System;assembly=System.Runtime"
              xmlns:viewModels="clr-namespace:HuTaoHelper.View.ViewModels"
              mc:Ignorable="d"
@@ -16,10 +15,10 @@
             <RowDefinition />
             <RowDefinition />
         </Grid.RowDefinitions>
-        <TextBlock>Change title:</TextBlock>
+        <TextBlock Text="{Binding Path=LocChangeTitleHeader, Source={StaticResource Translations}}"/>
         <TextBox Grid.Row="1"
                  Margin="0,10,0,0"
-                 materialDesign:HintAssist.Hint="Custom title (optional)"
+                 materialDesign:HintAssist.Hint="{Binding Path=LocChangeTitleHint, Source={StaticResource Translations}}"
                  FontSize="18"
                  Style="{StaticResource MaterialDesignFloatingHintTextBox}">
             <TextBox.Text>
@@ -31,20 +30,20 @@
                     Orientation="Horizontal">
             <Button Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"
                     IsDefault="True"
-                    Style="{StaticResource MaterialDesignFlatButton}">
+                    Style="{StaticResource MaterialDesignFlatButton}"
+                    Content="{Binding Path=LocDialogAccept, Source={StaticResource Translations}}">
                 <Button.CommandParameter>
                     <system:Boolean>True</system:Boolean>
                 </Button.CommandParameter>
-                ACCEPT
             </Button>
             <Button Margin="8,0,0,0"
                     Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"
                     IsCancel="True"
-                    Style="{StaticResource MaterialDesignFlatButton}">
+                    Style="{StaticResource MaterialDesignFlatButton}"
+                    Content="{Binding Path=LocDialogCancel, Source={StaticResource Translations}}">
                 <Button.CommandParameter>
                     <system:Boolean>False</system:Boolean>
                 </Button.CommandParameter>
-                CANCEL
             </Button>
         </StackPanel>
     </Grid>

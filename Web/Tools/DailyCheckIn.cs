@@ -1,6 +1,7 @@
 using System;
 using System.Threading.Tasks;
 using HuTaoHelper.Core;
+using HuTaoHelper.Localization.Resources;
 using HuTaoHelper.Web.Client;
 
 namespace HuTaoHelper.Web.Tools;
@@ -19,7 +20,7 @@ public static class DailyCheckIn {
 			var signDayEntity = (await client.GetSignDay()).ValidateResponseCode();
 
 			if (signDayEntity.Data.IsSign) {
-				Logging.PostEvent("Already claimed check-in reward");
+				Logging.PostEvent(Translations.LocCheckInAlready);
 				return;
 			}
 			
@@ -32,7 +33,10 @@ public static class DailyCheckIn {
 			var signResultEntity = (await client.DoSign()).ValidateResponseCode();
 
 			var givenAward = homeEntity.Data.Awards[currentDay];
-			Logging.PostEvent($"Reward claimed: {givenAward.Name} x{givenAward.Count}");
+
+			Logging.PostEvent(Translations.LocCheckInReward
+				.Replace("$1", givenAward.Name)
+				.Replace("$2", givenAward.Count.ToString()));
 		} catch (Exception e) {
 			Logging.PostEvent(e);
 		}

@@ -20,7 +20,7 @@
             </Grid.ColumnDefinitions>
 
             <Menu Grid.Row="0" materialDesign:MenuAssist.TopLevelMenuItemHeight="40">
-                <MenuItem Header="Tools">
+                <MenuItem Header="{Binding Path=LocMenuTools, Source={StaticResource Translations}}">
                     <MenuItem
                         Header="{Binding Path=LocMenuRefreshAllAccounts, Source={StaticResource Translations}}"
                         Name="RefreshAccountsMenu"
@@ -28,13 +28,13 @@
                         Icon="{materialDesign:PackIcon Kind=CloudRefresh}">
                     </MenuItem>
                     <MenuItem
-                        Header="Add an acount"
+                        Header="{Binding Path=LocMenuAddAccount, Source={StaticResource Translations}}"
                         Name="AddAccount"
                         Click="AddAccount_OnClick"
                         Icon="{materialDesign:PackIcon Kind=AccountPlus}">
                     </MenuItem>
                 </MenuItem>
-                <MenuItem Header="Language" Name="LanguagesMenu"/>
+                <MenuItem Header="{Binding Path=LocMenuLanguage, Source={StaticResource Translations}}" Name="LanguagesMenu"/>
             </Menu>
             <ListView Grid.Row="1" Name="AccountsList" SelectionChanged="AccountsList_OnSelectionChanged">
                 <ListView.ItemContainerStyle>
@@ -43,7 +43,7 @@
                         <Setter Property="ContextMenu">
                             <Setter.Value>
                                 <ContextMenu>
-                                    <MenuItem Name="AccountChangeTitleMenu" Header="Change title">
+                                    <MenuItem Name="AccountChangeTitleMenu" Header="{Binding Path=LocMenuChangeTitle, Source={StaticResource Translations}}">
                                         <MenuItem.Style>
                                             <Style TargetType="MenuItem"
                                                    BasedOn="{StaticResource MaterialDesignMenuItem}">
@@ -51,7 +51,7 @@
                                             </Style>
                                         </MenuItem.Style>
                                     </MenuItem>
-                                    <MenuItem Name="AccountReauthenticateMenu" Header="Reauthenticate">
+                                    <MenuItem Name="AccountReauthenticateMenu" Header="{Binding Path=LocMenuReauthenticate, Source={StaticResource Translations}}">
                                         <MenuItem.Style>
                                             <Style TargetType="MenuItem"
                                                    BasedOn="{StaticResource MaterialDesignMenuItem}">
@@ -59,7 +59,7 @@
                                             </Style>
                                         </MenuItem.Style>
                                     </MenuItem>
-                                    <MenuItem Name="AccountRefreshMenu" Header="Refresh information">
+                                    <MenuItem Name="AccountRefreshMenu" Header="{Binding Path=LocMenuRefresh, Source={StaticResource Translations}}">
                                         <MenuItem.Style>
                                             <Style TargetType="MenuItem"
                                                    BasedOn="{StaticResource MaterialDesignMenuItem}">
@@ -68,7 +68,7 @@
                                         </MenuItem.Style>
                                     </MenuItem>
                                     <Separator />
-                                    <MenuItem Name="AccountRemoveMenu" Header="Remove">
+                                    <MenuItem Name="AccountRemoveMenu" Header="{Binding Path=LocMenuRemove, Source={StaticResource Translations}}">
                                         <MenuItem.Style>
                                             <Style TargetType="MenuItem"
                                                    BasedOn="{StaticResource MaterialDesignMenuItem}">

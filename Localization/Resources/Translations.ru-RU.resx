@@ -24,4 +24,82 @@
     <data name="LocLanguageChanged" xml:space="preserve">
         <value>Язык изменён на Русский</value>
     </data>
+    <data name="LocMenuTools" xml:space="preserve">
+        <value>Инструменты</value>
+    </data>
+    <data name="LocMenuAddAccount" xml:space="preserve">
+        <value>Добавить аккаунт</value>
+    </data>
+    <data name="LocMenuLanguage" xml:space="preserve">
+        <value>Язык</value>
+    </data>
+    <data name="LocMenuChangeTitle" xml:space="preserve">
+        <value>Изменить имя</value>
+    </data>
+    <data name="LocMenuReauthenticate" xml:space="preserve">
+        <value>Повторить аутентификацию</value>
+    </data>
+    <data name="LocMenuRefresh" xml:space="preserve">
+        <value>Обновить информацию</value>
+    </data>
+    <data name="LocMenuRemove" xml:space="preserve">
+        <value>Удалить</value>
+    </data>
+    <data name="LocWebLoginButton" xml:space="preserve">
+        <value>эту кнопку</value>
+    </data>
+    <data name="LocWebLoginLabel" xml:space="preserve">
+        <value>Пожалуйста, аутентифицируйтесь и нажмите</value>
+    </data>
+    <data name="LocWebLoginAuthentication" xml:space="preserve">
+        <value>Аутентификация</value>
+    </data>
+    <data name="LocChangeTitleHeader" xml:space="preserve">
+        <value>Изменить имя:</value>
+    </data>
+    <data name="LocChangeTitleHint" xml:space="preserve">
+        <value>Изменённое имя (опционально)</value>
+    </data>
+    <data name="LocDialogCancel" xml:space="preserve">
+        <value>ОТМЕНА</value>
+    </data>
+    <data name="LocDialogAccept" xml:space="preserve">
+        <value>ПРИНЯТЬ</value>
+    </data>
+    <data name="LocAddAccountHeader" xml:space="preserve">
+        <value>Новый аккаунт:</value>
+    </data>
+    <data name="LocAddAccountLoginHint" xml:space="preserve">
+        <value>Логин / почта</value>
+    </data>
+    <data name="LogAddAccountPassword" xml:space="preserve">
+        <value>Пароль</value>
+    </data>
+    <data name="LocRequiredField" xml:space="preserve">
+        <value>Поле обязательно для заполнения</value>
+    </data>
+    <data name="LocGameHandleNotFound" xml:space="preserve">
+        <value>Не найдена ни одна запущенная игра</value>
+    </data>
+    <data name="LocGameHandleSelectionHeader" xml:space="preserve">
+        <value>Выберите запущенную игру:</value>
+    </data>
+    <data name="LocCheckInAlready" xml:space="preserve">
+        <value>Награда ежедневного клика уже получена</value>
+    </data>
+    <data name="LocCheckInReward" xml:space="preserve">
+        <value>Награда получена: $1 $2шт.</value>
+    </data>
+    <data name="LocAllAccountsRefreshed" xml:space="preserve">
+        <value>Информация об аккаунтах обновлена</value>
+    </data>
+    <data name="LocAccountRefreshed" xml:space="preserve">
+        <value>Обновлена информация об аккаунте "$1"</value>
+    </data>
+    <data name="LocAuthenticationError" xml:space="preserve">
+        <value>Ошибка аутентификации аккаунта</value>
+    </data>
+    <data name="LocAuthenticationSuccessful" xml:space="preserve">
+        <value>Аккаунт успешно аутентифицирован!</value>
+    </data>
 </root>

@@ -60,6 +60,132 @@ namespace HuTaoHelper.Localization.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Обновлена информация об аккаунте &quot;$1&quot;.
+        /// </summary>
+        public static string LocAccountRefreshed {
+            get {
+                return ResourceManager.GetString("LocAccountRefreshed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Новый аккаунт:.
+        /// </summary>
+        public static string LocAddAccountHeader {
+            get {
+                return ResourceManager.GetString("LocAddAccountHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Логин / почта.
+        /// </summary>
+        public static string LocAddAccountLoginHint {
+            get {
+                return ResourceManager.GetString("LocAddAccountLoginHint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Информация об аккаунтах обновлена.
+        /// </summary>
+        public static string LocAllAccountsRefreshed {
+            get {
+                return ResourceManager.GetString("LocAllAccountsRefreshed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ошибка аутентификации аккаунта.
+        /// </summary>
+        public static string LocAuthenticationError {
+            get {
+                return ResourceManager.GetString("LocAuthenticationError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Аккаунт успешно аутентифицирован!.
+        /// </summary>
+        public static string LocAuthenticationSuccessful {
+            get {
+                return ResourceManager.GetString("LocAuthenticationSuccessful", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Изменить имя:.
+        /// </summary>
+        public static string LocChangeTitleHeader {
+            get {
+                return ResourceManager.GetString("LocChangeTitleHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Изменённое имя (опционально).
+        /// </summary>
+        public static string LocChangeTitleHint {
+            get {
+                return ResourceManager.GetString("LocChangeTitleHint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Награда ежедневного клика уже получена.
+        /// </summary>
+        public static string LocCheckInAlready {
+            get {
+                return ResourceManager.GetString("LocCheckInAlready", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Награда получена: $1 $2шт..
+        /// </summary>
+        public static string LocCheckInReward {
+            get {
+                return ResourceManager.GetString("LocCheckInReward", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ПРИНЯТЬ.
+        /// </summary>
+        public static string LocDialogAccept {
+            get {
+                return ResourceManager.GetString("LocDialogAccept", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ОТМЕНА.
+        /// </summary>
+        public static string LocDialogCancel {
+            get {
+                return ResourceManager.GetString("LocDialogCancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Не найдена ни одна запущенная игра.
+        /// </summary>
+        public static string LocGameHandleNotFound {
+            get {
+                return ResourceManager.GetString("LocGameHandleNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Выберите запущенную игру:.
+        /// </summary>
+        public static string LocGameHandleSelectionHeader {
+            get {
+                return ResourceManager.GetString("LocGameHandleSelectionHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Язык изменён на Русский.
         /// </summary>
         public static string LocLanguageChanged {
@@ -69,11 +195,119 @@ namespace HuTaoHelper.Localization.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Добавить аккаунт.
+        /// </summary>
+        public static string LocMenuAddAccount {
+            get {
+                return ResourceManager.GetString("LocMenuAddAccount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Изменить имя.
+        /// </summary>
+        public static string LocMenuChangeTitle {
+            get {
+                return ResourceManager.GetString("LocMenuChangeTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Язык.
+        /// </summary>
+        public static string LocMenuLanguage {
+            get {
+                return ResourceManager.GetString("LocMenuLanguage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Повторить аутентификацию.
+        /// </summary>
+        public static string LocMenuReauthenticate {
+            get {
+                return ResourceManager.GetString("LocMenuReauthenticate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Обновить информацию.
+        /// </summary>
+        public static string LocMenuRefresh {
+            get {
+                return ResourceManager.GetString("LocMenuRefresh", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Обновить все аккаунты.
         /// </summary>
         public static string LocMenuRefreshAllAccounts {
             get {
                 return ResourceManager.GetString("LocMenuRefreshAllAccounts", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Удалить.
+        /// </summary>
+        public static string LocMenuRemove {
+            get {
+                return ResourceManager.GetString("LocMenuRemove", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Инструменты.
+        /// </summary>
+        public static string LocMenuTools {
+            get {
+                return ResourceManager.GetString("LocMenuTools", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Поле обязательно для заполнения.
+        /// </summary>
+        public static string LocRequiredField {
+            get {
+                return ResourceManager.GetString("LocRequiredField", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Аутентификация.
+        /// </summary>
+        public static string LocWebLoginAuthentication {
+            get {
+                return ResourceManager.GetString("LocWebLoginAuthentication", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to эту кнопку.
+        /// </summary>
+        public static string LocWebLoginButton {
+            get {
+                return ResourceManager.GetString("LocWebLoginButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Пожалуйста, аутентифицируйтесь и нажмите.
+        /// </summary>
+        public static string LocWebLoginLabel {
+            get {
+                return ResourceManager.GetString("LocWebLoginLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Пароль.
+        /// </summary>
+        public static string LogAddAccountPassword {
+            get {
+                return ResourceManager.GetString("LogAddAccountPassword", resourceCulture);
             }
         }
     }
