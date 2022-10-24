@@ -1,4 +1,5 @@
 # HuTaoHelper
+EN | [RU](README.ru.md)\
 Automation tool and account manager for anime game
 
 ### What is it?
@@ -12,7 +13,7 @@ This tool aims to simplify your life as possible
 ### Requirements
 - .net 6.0+ (with desktop runtime)\
 You can get it [here](https://dotnet.microsoft.com/en-us/download/dotnet/6.0)\
-![preview](Images/Runtime.png)
+![preview](Images/en/Runtime.png)
 - Edge browser (I think it's included into your windows)
 
 ### Known problems
@@ -30,34 +31,34 @@ after account deletion
 
 ##### Create an account
 1. Go to `Tools -> Add an account`\
-![preview](Images/CreateAccount1.png)
+![preview](Images/en/CreateAccount1.png)
 2. Fill in all required fields and click `Add`\
 (_you can also override account title in the
 accounts list, this can be changed later_)\
-![preview](Images/CreateAccount2.png)
+![preview](Images/en/CreateAccount2.png)
 3. The app will then require you to authenticate
 to "one well-known site". Log in to your account
 and then click on the button above\
-![preview](Images/CreateAccount3.png)
+![preview](Images/en/CreateAccount3.png)
 4. Wait for 2-3 seconds and your name and avatar
 will appear in the accounts list
 > If you skipped the authentication step,
 > don't worry!\
 > You can continue this any time by clicking
 > this button:\
-> ![preview](Images/CreateAccount4.png)
+> ![preview](Images/en/CreateAccount4.png)
 
 ##### Autologin into game
 > **!Important notice!**\
 > The app must be run as administrator
 > otherwise autologin won't work\
-> ![preview](Images/RunAsAdministrator.png)
+> ![preview](Images/en/RunAsAdministrator.png)
 
 1. Start the game and open the login window\
 (_both for GeForceNOW and native game versions_)
 2. Click on the login field so that the
 caret appears there\
-![preview](Images/Autologin1.png)
+![preview](Images/en/Autologin1.png)
 3. Via `Alt + tab` go back to the application
 and click once on your account
 4. Sometimes, due to a bug, the password can
@@ -66,16 +67,16 @@ just repeat steps 2-3
 
 ##### Claim daily check-in rewards
 1. Click onto this button\
-   ![preview](Images/CreateAccount4.png)
+   ![preview](Images/en/CreateAccount4.png)
 2. See the result at the bottom\
-   ![preview](Images/DailyCheckIn1.png)
+   ![preview](Images/en/DailyCheckIn1.png)
 
 > P.S. soon I will automate this with
 > windows task scheduler
 
 ##### Manage accounts
 You can edit accounts by right clicking on them\
-![preview](Images/ManageAccounts1.png)
+![preview](Images/en/ManageAccounts1.png)
 
 ### F.A.Q.
 Q: **What if you use my passwords?**\
@@ -100,10 +101,12 @@ Q: **How can I support you?**\
 A: Give this repository a star :D\
 You can also submit any ideas, bugs or pull
 requests\
-Now i'm developing a localization engine and
-translations into various languages may be required\
-(English, Russian and Ukrainian languages
-I will do at my own)
+If you know some language except English,
+Russian and Ukrainian, then you can help us
+with translation on them\
+For every language its required to translate this
+README.md file and create its own resx file in the
+folder /Localization/Resources\
 
 ### Plans and features
 Some features are still in development
@@ -116,7 +119,7 @@ Some features are still in development
 - [X] Documentation and how to
 - [X] Migration service for settings
 - [X] Ability to edit accounts
-- [ ] Localization to other languages
+- [X] Localization to other languages
 - [ ] Accounts reordering
 - [ ] Update system
 - [ ] Automation for web events
