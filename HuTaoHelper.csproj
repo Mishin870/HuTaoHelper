@@ -30,9 +30,12 @@
       <EmbeddedResource Update="Localization\Resources\Translations.en-US.resx">
         <Generator>PublicResXFileCodeGenerator</Generator>
       </EmbeddedResource>
-      <EmbeddedResource Update="Localization\Resources\Translations.ru-RU.resx">
-        <Generator>PublicResXFileCodeGenerator</Generator>
-      </EmbeddedResource>
+        <EmbeddedResource Update="Localization\Resources\Translations.ru-RU.resx">
+            <Generator>PublicResXFileCodeGenerator</Generator>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Localization\Resources\Translations.uk-UA.resx">
+            <Generator>PublicResXFileCodeGenerator</Generator>
+        </EmbeddedResource>
       <EmbeddedResource Update="Localization\Resources\Translations.resx">
         <Generator>PublicResXFileCodeGenerator</Generator>
         <LastGenOutput>Translations.Designer.cs</LastGenOutput>
@@ -45,11 +48,16 @@
         <AutoGen>True</AutoGen>
         <DependentUpon>Translations.en-US.resx</DependentUpon>
       </Compile>
-      <Compile Update="Localization\Resources\ru-RU.Designer.cs">
-        <DesignTime>True</DesignTime>
-        <AutoGen>True</AutoGen>
-        <DependentUpon>Translations.ru-RU.resx</DependentUpon>
-      </Compile>
+        <Compile Update="Localization\Resources\ru-RU.Designer.cs">
+            <DesignTime>True</DesignTime>
+            <AutoGen>True</AutoGen>
+            <DependentUpon>Translations.ru-RU.resx</DependentUpon>
+        </Compile>
+        <Compile Update="Localization\Resources\uk-UA.Designer.cs">
+            <DesignTime>True</DesignTime>
+            <AutoGen>True</AutoGen>
+            <DependentUpon>Translations.uk-UA.resx</DependentUpon>
+        </Compile>
       <Compile Update="Localization\Resources\Translations.Designer.cs">
         <DesignTime>True</DesignTime>
         <AutoGen>True</AutoGen>
