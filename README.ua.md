@@ -18,7 +18,7 @@
 ### Вимоги
 - .net 6.0+ (обов'язково з desktop runtime)\
 Можна завантажити [тут](https://dotnet.microsoft.com/en-us/download/dotnet/6.0)\
-![preview](Images/ru/Runtime.png)
+![preview](Images/ua/Runtime.png)
 - Браузер Edge (найімовірніше він у вас вже є)
 
 ### Відомі проблеми
@@ -37,33 +37,33 @@
 
 ##### Створення акаунта
 1. Натисніть `Інструменти -> Додати акаунт`\
-![preview](Images/ru/CreateAccount1.png)
+![preview](Images/ua/CreateAccount1.png)
 2. Заповніть усі необхідні поля та натисніть `Додати`\
 (_також ви можете перевизначити ім'я у списку
 акаунтів, його можна буде міняти у майбутньому_)\
-![preview](Images/ru/CreateAccount2.png)
+![preview](Images/ua/CreateAccount2.png)
 3. Далі застосунок попросить вас аутентифікуватися
 на "одному відомому сайті". Увійдіть до свого акаунта
 та натисніть на кнопку зверху\
-![preview](Images/ru/CreateAccount3.png)
+![preview](Images/ua/CreateAccount3.png)
 4. Після 2-3 секунд очікування ваше ім'я та аватарка
 з'являться у списку
 > Якщо ви пропустили етап аутентифікації,
 > не хвилюйтесь!\
 > Ви зможете його продовжити в будь-який час, натиснувши
 > на цю кнопку:\
-> ![preview](Images/ru/CreateAccount4.png)
+> ![preview](Images/ua/CreateAccount4.png)
 ##### Автовхід до гри
 > **!Важлива інформація!**\
 > Для роботи автологіна потрібно, щоб програма
 > була запущена від имені адміністратора, інакше
 > він не працюватиме\
-> ![preview](Images/ru/RunAsAdministrator.png)
+> ![preview](Images/ua/RunAsAdministrator.png)
 1. Запустіть гру та відкрийте вікно входу в акаунт\
 (_однаково для звичайної гри та для GeForceNOW версії_)
 2. Натисніть на поле для вводу логіна, щоб на ньому
 з'явилась каретка введення\
-![preview](Images/ru/Autologin1.png)
+![preview](Images/ua/Autologin1.png)
 3. Натисніть `Alt + tab` та поверніться до
 додатку. Натисніть один раз на потрібний акаунт
 в списку
@@ -72,16 +72,16 @@
 
 ##### Забрати нагороду ежедневной отметки
 1. Натисніть на цю кнопку\
-   ![preview](Images/ru/CreateAccount4.png)
+   ![preview](Images/ua/CreateAccount4.png)
 2. Результат натискання знизу\
-   ![preview](Images/ru/DailyCheckIn1.png)
+   ![preview](Images/ua/DailyCheckIn1.png)
 
 > P.S. в майбутньому я автоматизую це повністю
 > за допомогою планувальника задач Windows
 ##### Управління акаунтами
 Ви можете редагувати акаунти, натиская по них
 правою кнопкою миші\
-![preview](Images/ru/ManageAccounts1.png)
+![preview](Images/ua/ManageAccounts1.png)
 
 ### F.A.Q.
 Q: **Ви можете вкрасти мої паролі?**\
