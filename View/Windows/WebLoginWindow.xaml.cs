@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using HuTaoHelper.Control;
 using HuTaoHelper.Core;
+using HuTaoHelper.Localization.Resources;
 using HuTaoHelper.View.Utils;
 using Constants = HuTaoHelper.Core.Constants;
 
@@ -40,7 +41,7 @@ var checker = setInterval(function () {
 	}
 
 	private static async Task NoAuthenticationAsync() {
-		await ViewUtils.ShowMessageAsync("I don't see authentication data :(", ViewUtils.DIALOG_WEB_LOGIN);
+		await ViewUtils.ShowMessageAsync(Translations.LocWebLoginNoAuthentication, ViewUtils.DIALOG_WEB_LOGIN);
 	}
 
 	private async void Save_OnClick(object sender, RoutedEventArgs e) {

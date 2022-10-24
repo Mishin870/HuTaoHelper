@@ -305,6 +305,15 @@ namespace HuTaoHelper.Localization.Resources {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
+        public static string LocWebLoginNoAuthentication {
+            get {
+                return ResourceManager.GetString("LocWebLoginNoAuthentication", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
         public static string LogAddAccountPassword {
             get {
                 return ResourceManager.GetString("LogAddAccountPassword", resourceCulture);

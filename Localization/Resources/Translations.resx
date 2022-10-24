@@ -102,4 +102,7 @@
     <data name="LocAuthenticationError" xml:space="preserve">
         <value />
     </data>
+    <data name="LocWebLoginNoAuthentication" xml:space="preserve">
+        <value />
+    </data>
 </root>

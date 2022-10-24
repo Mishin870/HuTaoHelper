@@ -102,4 +102,7 @@
     <data name="LocAuthenticationSuccessful" xml:space="preserve">
         <value>Аккаунт успешно аутентифицирован!</value>
     </data>
+    <data name="LocWebLoginNoAuthentication" xml:space="preserve">
+        <value>Я не вижу данных аутентификации :(</value>
+    </data>
 </root>
