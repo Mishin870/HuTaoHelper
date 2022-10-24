@@ -22,7 +22,7 @@
             <Menu Grid.Row="0" materialDesign:MenuAssist.TopLevelMenuItemHeight="40">
                 <MenuItem Header="Tools">
                     <MenuItem
-                        Header="Refresh all accounts info"
+                        Header="{Binding Path=LocMenuRefreshAllAccounts, Source={StaticResource Translations}}"
                         Name="RefreshAccountsMenu"
                         Click="RefreshAccountsMenu_OnClick"
                         Icon="{materialDesign:PackIcon Kind=CloudRefresh}">
@@ -34,6 +34,7 @@
                         Icon="{materialDesign:PackIcon Kind=AccountPlus}">
                     </MenuItem>
                 </MenuItem>
+                <MenuItem Header="Language" Name="LanguagesMenu"/>
             </Menu>
             <ListView Grid.Row="1" Name="AccountsList" SelectionChanged="AccountsList_OnSelectionChanged">
                 <ListView.ItemContainerStyle>
