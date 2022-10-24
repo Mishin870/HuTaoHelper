@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
+using System.Globalization;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
@@ -8,6 +10,7 @@ using System.Windows.Data;
 using System.Windows.Input;
 using HuTaoHelper.Control;
 using HuTaoHelper.Core;
+using HuTaoHelper.Localization.Resources;
 using HuTaoHelper.View.Dialogs;
 using HuTaoHelper.View.Utils;
 using HuTaoHelper.View.ViewModels;
@@ -22,7 +25,7 @@ public partial class MainWindow {
 		CommandBindings.Add(new CommandBinding(GlobalCommands.CheckIn, DoCheckIn));
 		CommandBindings.Add(new CommandBinding(GlobalCommands.AutoLogin, DoAutoLogin));
 		ViewUtils.CallbackRefreshAccountsList = () => {
-			Application.Current.Dispatcher.Invoke((Action)delegate{
+			Application.Current.Dispatcher.Invoke((Action)delegate {
 				var items = Settings.Instance.Accounts.Values;
 				AccountsList.ItemsSource = items;
 				CollectionViewSource.GetDefaultView(items).Refresh();
@@ -41,12 +44,12 @@ public partial class MainWindow {
 				if (account.Cookies.IsValid()) {
 					DailyCheckIn.DoCheckInAsync(account).Wait();
 				} else {
-					Application.Current.Dispatcher.Invoke((Action)delegate{
+					Application.Current.Dispatcher.Invoke((Action)delegate {
 						if (Automation.AuthenticateWeb(account)) {
 							Settings.Save();
-							Logging.PostEvent("Account succesfully authenticated!");
+							Logging.PostEvent(Translations.LocAuthenticationSuccessful);
 						} else {
-							Logging.PostEvent("Error authenticating account");
+							Logging.PostEvent(Translations.LocAuthenticationError);
 						}
 					});
 				}
@@ -60,9 +63,39 @@ public partial class MainWindow {
 		}
 	}
 
+	private void SelectLanguage(CultureInfo culture, bool notification = true) {
+		CultureResources.ChangeCulture(culture);
+
+		if (notification) {
+			Logging.PostEvent(Translations.LocLanguageChanged);
+		}
+
+		Settings.Instance.Language = culture.Name;
+		Settings.Save();
+	}
+
 	private void MainWindow_OnLoaded(object sender, RoutedEventArgs e) {
+		foreach (var culture in CultureResources.SupportedCultures) {
+			var languageItem = new MenuItem {
+				Header = culture.DisplayName
+			};
+			languageItem.Click += (_, _) => { SelectLanguage(culture); };
+			LanguagesMenu.Items.Add(languageItem);
+		}
+
 		EventsLog.MessageQueue = Logging.EventQueue;
 		Settings.Load();
+
+		var selectedLanguage = Settings.Instance.Language;
+
+		foreach (var culture in CultureResources.SupportedCultures) {
+			if (culture.Name == selectedLanguage) {
+				SelectLanguage(culture, false);
+				return;
+			}
+		}
+
+		SelectLanguage(CultureResources.SupportedCultures[0], false);
 	}
 
 	private void MainWindow_OnClosing(object? sender, CancelEventArgs e) {
@@ -74,8 +107,8 @@ public partial class MainWindow {
 			foreach (var account in Settings.Instance.Accounts.Values) {
 				account.RefreshGameInformation().Wait();
 			}
-			
-			Logging.PostEvent("Accounts information refreshed");
+
+			Logging.PostEvent(Translations.LocAllAccountsRefreshed);
 		});
 	}
 
@@ -90,12 +123,12 @@ public partial class MainWindow {
 				if (args.Parameter is false) return;
 
 				args.Cancel();
-				
+
 				var account = addAccountViewModel.ToAccount();
 				if (account == null) {
 					return;
 				}
-				
+
 				args.Session.UpdateContent(new PreloaderDialog());
 
 				if (Automation.AuthenticateWeb(account)) {
@@ -135,9 +168,7 @@ public partial class MainWindow {
 
 	private async void AccountReauthenticateMenu_OnClick(object sender, RoutedEventArgs e) {
 		await DoAccountContextAction(e, account => {
-			Application.Current.Dispatcher.Invoke((Action)delegate{
-				Automation.AuthenticateWeb(account);
-			});
+			Application.Current.Dispatcher.Invoke((Action)delegate { Automation.AuthenticateWeb(account); });
 			return Task.CompletedTask;
 		});
 	}
@@ -145,7 +176,8 @@ public partial class MainWindow {
 	private async void AccountRefreshMenu_OnClick(object sender, RoutedEventArgs e) {
 		await DoAccountContextAction(e, async account => {
 			await account.RefreshGameInformation();
-			Logging.PostEvent($"Account \"{account.Name}\" information refreshed");
+			Logging.PostEvent(Translations.LocAccountRefreshed
+				.Replace("$1", account.Name));
 		});
 	}
 
@@ -162,12 +194,12 @@ public partial class MainWindow {
 			await DialogHost.Show(view, ViewUtils.DIALOG_ROOT,
 				null, (_, args) => {
 					if (args.Parameter is false) return;
-					
+
 					account.Title = changeTitleViewModel.Title;
 					if (string.IsNullOrWhiteSpace(account.Title)) {
 						account.Title = null;
 					}
-					
+
 					Settings.Save();
 				});
 		}, false);

@@ -18,10 +18,10 @@
             <RowDefinition />
             <RowDefinition />
         </Grid.RowDefinitions>
-        <TextBlock>New account:</TextBlock>
+        <TextBlock Text="{Binding Path=LocAddAccountHeader, Source={StaticResource Translations}}"/>
         <TextBox Grid.Row="1"
                  Margin="0,10,0,0"
-                 materialDesign:HintAssist.Hint="Login / email"
+                 materialDesign:HintAssist.Hint="{Binding Path=LocAddAccountLoginHint, Source={StaticResource Translations}}"
                  FontSize="18"
                  Style="{StaticResource MaterialDesignFloatingHintTextBox}">
             <TextBox.Text>
@@ -34,7 +34,7 @@
         </TextBox>
         <TextBox Grid.Row="2"
                  Margin="0,10,0,0"
-                 materialDesign:HintAssist.Hint="Password"
+                 materialDesign:HintAssist.Hint="{Binding Path=LogAddAccountPassword, Source={StaticResource Translations}}"
                  FontSize="18"
                  Style="{StaticResource MaterialDesignFloatingHintTextBox}">
             <TextBox.Text>
@@ -47,7 +47,7 @@
         </TextBox>
         <TextBox Grid.Row="3"
                  Margin="0,10,0,0"
-                 materialDesign:HintAssist.Hint="Custom title (optional)"
+                 materialDesign:HintAssist.Hint="{Binding Path=LocChangeTitleHint, Source={StaticResource Translations}}"
                  FontSize="18"
                  Style="{StaticResource MaterialDesignFloatingHintTextBox}">
             <TextBox.Text>
@@ -59,20 +59,20 @@
                     Orientation="Horizontal">
             <Button Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"
                     IsDefault="True"
-                    Style="{StaticResource MaterialDesignFlatButton}">
+                    Style="{StaticResource MaterialDesignFlatButton}"
+                    Content="{Binding Path=LocDialogAccept, Source={StaticResource Translations}}">
                 <Button.CommandParameter>
                     <system:Boolean>True</system:Boolean>
                 </Button.CommandParameter>
-                ACCEPT
             </Button>
             <Button Margin="8,0,0,0"
                     Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"
                     IsCancel="True"
-                    Style="{StaticResource MaterialDesignFlatButton}">
+                    Style="{StaticResource MaterialDesignFlatButton}"
+                    Content="{Binding Path=LocDialogCancel, Source={StaticResource Translations}}">
                 <Button.CommandParameter>
                     <system:Boolean>False</system:Boolean>
                 </Button.CommandParameter>
-                CANCEL
             </Button>
         </StackPanel>
     </Grid>

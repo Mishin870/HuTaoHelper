@@ -8,13 +8,14 @@
         mc:Ignorable="d"
         Loaded="WebLoginWindow_OnLoaded"
         ResizeMode="CanResize"
-        Title="Authentication" Height="800" Width="1200">
+        Title="{Binding Path=LocWebLoginAuthentication, Source={StaticResource Translations}}" Height="800" Width="1200">
     <materialDesign:DialogHost Identifier="WebLoginDialog">
         <Grid>
             <DockPanel>
                 <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Margin="10">
-                    <TextBlock VerticalAlignment="Center">Please, authenticate and click </TextBlock>
-                    <Button VerticalAlignment="Center" Margin="10 0 0 0" Click="Save_OnClick">this button</Button>
+                    <TextBlock VerticalAlignment="Center" Text="{Binding Path=LocWebLoginLabel, Source={StaticResource Translations}}"/> 
+                    <Button VerticalAlignment="Center" Margin="10 0 0 0" Click="Save_OnClick"
+                            Content="{Binding Path=LocWebLoginButton, Source={StaticResource Translations}}"/>
                 </StackPanel>
                 <wv2:WebView2 Name="Browser" />
             </DockPanel>

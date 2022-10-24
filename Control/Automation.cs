@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using HuTaoHelper.Core;
+using HuTaoHelper.Localization.Resources;
 using HuTaoHelper.View;
 using HuTaoHelper.View.Dialogs;
 using HuTaoHelper.View.Utils;
@@ -42,7 +43,7 @@ public static class Automation {
 
 		switch (handles.Count) {
 			case 0:
-				Logging.PostEvent("Running game instance not found", 500);
+				Logging.PostEvent(Translations.LocGameHandleNotFound, 500);
 				return;
 			case 1:
 				await handles[0].AutologinAsync(account);

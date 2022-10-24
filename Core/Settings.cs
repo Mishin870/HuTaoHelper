@@ -18,6 +18,11 @@ public class Settings {
 
 	public AutologinSettings Autologin = new();
 	public Dictionary<int, Account> Accounts = new();
+
+	/// <summary>
+	/// Current selected app language
+	/// </summary>
+	public string Language;
 	
 	/// <summary>
 	/// Current free id for new accounts

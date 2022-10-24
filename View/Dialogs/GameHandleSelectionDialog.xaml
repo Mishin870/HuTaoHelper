@@ -17,7 +17,7 @@
             <RowDefinition />
             <RowDefinition />
         </Grid.RowDefinitions>
-        <TextBlock Grid.Row="0">Select game instance:</TextBlock>
+        <TextBlock Grid.Row="0" Text="{Binding Path=LocGameHandleSelectionHeader, Source={StaticResource Translations}}"/>
         <ListView Grid.Row="1" Margin="0 10 0 0" Name="HandlesList" SelectionChanged="HandlesList_OnSelectionChanged"
                   ItemsSource="{Binding Handles}">
         </ListView>
@@ -27,11 +27,11 @@
             <Button Margin="8,0,0,0"
                     Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"
                     IsCancel="True"
-                    Style="{StaticResource MaterialDesignFlatButton}">
+                    Style="{StaticResource MaterialDesignFlatButton}"
+                    Content="{Binding Path=LocDialogCancel, Source={StaticResource Translations}}">
                 <Button.CommandParameter>
                     <system:Boolean>False</system:Boolean>
                 </Button.CommandParameter>
-                CANCEL
             </Button>
         </StackPanel>
     </Grid>
