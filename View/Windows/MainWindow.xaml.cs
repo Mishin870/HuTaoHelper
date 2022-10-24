@@ -63,21 +63,39 @@ public partial class MainWindow {
 		}
 	}
 
+	private void SelectLanguage(CultureInfo culture, bool notification = true) {
+		CultureResources.ChangeCulture(culture);
+
+		if (notification) {
+			Logging.PostEvent(Translations.LocLanguageChanged);
+		}
+
+		Settings.Instance.Language = culture.Name;
+		Settings.Save();
+	}
+
 	private void MainWindow_OnLoaded(object sender, RoutedEventArgs e) {
 		foreach (var culture in CultureResources.SupportedCultures) {
 			var languageItem = new MenuItem {
 				Header = culture.DisplayName
 			};
-			languageItem.Click += (_, _) => {
-				CultureResources.ChangeCulture(culture);
-				
-				Logging.PostEvent(Translations.LocLanguageChanged);
-			};
-			LanguagesMenu.Items.Add(languageItem);			
+			languageItem.Click += (_, _) => { SelectLanguage(culture); };
+			LanguagesMenu.Items.Add(languageItem);
 		}
 
 		EventsLog.MessageQueue = Logging.EventQueue;
 		Settings.Load();
+
+		var selectedLanguage = Settings.Instance.Language;
+
+		foreach (var culture in CultureResources.SupportedCultures) {
+			if (culture.Name == selectedLanguage) {
+				SelectLanguage(culture, false);
+				return;
+			}
+		}
+
+		SelectLanguage(CultureResources.SupportedCultures[0], false);
 	}
 
 	private void MainWindow_OnClosing(object? sender, CancelEventArgs e) {

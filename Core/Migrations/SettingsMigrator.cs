@@ -17,6 +17,9 @@ public sealed class SettingsMigrator : Migrator {
 		});
 		RegisterMigration(0, 1, () => {
 		});
+		RegisterMigration(1, 2, () => {
+			Root.Language = "";
+		});
 	}
 
 	public string GetResult() {
