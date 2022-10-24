@@ -1,5 +1,6 @@
 # HuTaoHelper
-EN | [RU](README.ru.md)\
+[EN | [RU](README.ru.md)]
+
 Automation tool and account manager for anime game
 
 ### What is it?
