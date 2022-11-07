@@ -75,7 +75,7 @@ accounts will be clicked
 
 > You can view created tasks\
 > Open your start menu and search for `taskschd.msc`\
-> Here you can see:
+> Here you can see:\
 > ![preview](Images/en/TasksScheduler1.png)
 
 ##### Manage accounts
