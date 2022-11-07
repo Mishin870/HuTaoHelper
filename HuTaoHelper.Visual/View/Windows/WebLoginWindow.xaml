@@ -1,0 +1,24 @@
+<Window x:Class="HuTaoHelper.Visual.View.Windows.WebLoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:wv2="clr-namespace:Microsoft.Web.WebView2.Wpf;assembly=Microsoft.Web.WebView2.Wpf"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Loaded="WebLoginWindow_OnLoaded"
+        ResizeMode="CanResize"
+        Title="{Binding Path=LocWebLoginAuthentication, Source={StaticResource Translations}}" Height="800" Width="1200">
+    <materialDesign:DialogHost Identifier="WebLoginDialog">
+        <Grid>
+            <DockPanel>
+                <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Margin="10">
+                    <TextBlock VerticalAlignment="Center" Text="{Binding Path=LocWebLoginLabel, Source={StaticResource Translations}}"/> 
+                    <Button VerticalAlignment="Center" Margin="10 0 0 0" Click="Save_OnClick"
+                            Content="{Binding Path=LocWebLoginButton, Source={StaticResource Translations}}"/>
+                </StackPanel>
+                <wv2:WebView2 Name="Browser" />
+            </DockPanel>
+        </Grid>
+    </materialDesign:DialogHost>
+</Window>

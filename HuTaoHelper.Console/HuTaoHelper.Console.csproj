@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <LangVersion>default</LangVersion>
+        <PackageId />
+        <PackageVersion />
+        <Authors />
+        <Company>Mishin870</Company>
+        <Product>HuTaoHelper.Console</Product>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\HuTaoHelper.Core\HuTaoHelper.Core.csproj" />
+    </ItemGroup>
+
+</Project>

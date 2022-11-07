@@ -1,6 +1,10 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HuTaoHelper", "HuTaoHelper.csproj", "{CAA88F3C-9E99-428F-9EEE-A1568D5D14BC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HuTaoHelper.Core", "HuTaoHelper.Core\HuTaoHelper.Core.csproj", "{726B199D-5E72-4C1F-81EF-FFF331F0897A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HuTaoHelper.Console", "HuTaoHelper.Console\HuTaoHelper.Console.csproj", "{58A3E335-2B4D-4263-972D-1DF744E62874}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HuTaoHelper.Visual", "HuTaoHelper.Visual\HuTaoHelper.Visual.csproj", "{504EE169-1BFE-46F1-9A9E-BC5F137D43C9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -8,9 +12,17 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{CAA88F3C-9E99-428F-9EEE-A1568D5D14BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CAA88F3C-9E99-428F-9EEE-A1568D5D14BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CAA88F3C-9E99-428F-9EEE-A1568D5D14BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CAA88F3C-9E99-428F-9EEE-A1568D5D14BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{726B199D-5E72-4C1F-81EF-FFF331F0897A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{726B199D-5E72-4C1F-81EF-FFF331F0897A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{726B199D-5E72-4C1F-81EF-FFF331F0897A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{726B199D-5E72-4C1F-81EF-FFF331F0897A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58A3E335-2B4D-4263-972D-1DF744E62874}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58A3E335-2B4D-4263-972D-1DF744E62874}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58A3E335-2B4D-4263-972D-1DF744E62874}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58A3E335-2B4D-4263-972D-1DF744E62874}.Release|Any CPU.Build.0 = Release|Any CPU
+		{504EE169-1BFE-46F1-9A9E-BC5F137D43C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{504EE169-1BFE-46F1-9A9E-BC5F137D43C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{504EE169-1BFE-46F1-9A9E-BC5F137D43C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{504EE169-1BFE-46F1-9A9E-BC5F137D43C9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

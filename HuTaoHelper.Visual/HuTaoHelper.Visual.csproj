@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <TargetFramework>net6.0-windows</TargetFramework>
+        <Nullable>enable</Nullable>
+        <UseWPF>true</UseWPF>
+        <AssemblyName>HuTaoHelper</AssemblyName>
+        <LangVersion>default</LangVersion>
+        <ApplicationIcon>Images\Icon.ico</ApplicationIcon>
+        <PackageId />
+        <PackageVersion />
+        <Authors />
+        <Company>Mishin870</Company>
+        <Product>HuTaoHelper</Product>
+        <AssemblyVersion>1.0.4</AssemblyVersion>
+        <NeutralLanguage>es-US</NeutralLanguage>
+        <ApplicationManifest>App.manifest</ApplicationManifest>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="MaterialDesignThemes" Version="4.6.1" />
+      <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.1418.22" />
+      <PackageReference Include="TaskScheduler" Version="2.10.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\HuTaoHelper.Core\HuTaoHelper.Core.csproj" />
+    </ItemGroup>
+
+</Project>
