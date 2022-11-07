@@ -9,6 +9,9 @@ using HuTaoHelper.Core.Localization;
 
 namespace HuTaoHelper.Visual.Localization;
 
+/// <summary>
+/// Helper class for xaml localization and managing all available cultures
+/// </summary>
 public static class CultureResources {
 	public static readonly List<CultureInfo> SupportedCultures = new();
 

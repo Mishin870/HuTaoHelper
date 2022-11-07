@@ -3,6 +3,9 @@ using HuTaoHelper.Core.Web.Tools;
 
 namespace HuTaoHelper.Console.Commands.Impl; 
 
+/// <summary>
+/// Command to do daily check-ins for all accounts automatically
+/// </summary>
 public class CommandDaily : AsyncCommand {
 	protected override async Task ExecuteAsync(List<string> args) {
 		var count = Settings.Instance.Accounts.Count;
