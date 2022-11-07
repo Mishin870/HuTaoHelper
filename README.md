@@ -50,11 +50,6 @@ will appear in the accounts list
 > ![preview](Images/en/CreateAccount4.png)
 
 ##### Autologin into game
-> **!Important notice!**\
-> The app must be run as administrator
-> otherwise autologin won't work\
-> ![preview](Images/en/RunAsAdministrator.png)
-
 1. Start the game and open the login window\
 (_both for GeForceNOW and native game versions_)
 2. Click on the login field so that the
@@ -72,8 +67,16 @@ just repeat steps 2-3
 2. See the result at the bottom\
    ![preview](Images/en/DailyCheckIn1.png)
 
-> P.S. soon I will automate this with
-> windows task scheduler
+##### Daily check-in rewards automation
+1. Just click onto this menu\
+   ![preview](Images/en/DailyCheckIn2.png)
+2. Ready! Every day at the same time all your
+accounts will be clicked
+
+> You can view created tasks\
+> Open your start menu and search for `taskschd.msc`\
+> Here you can see:
+> ![preview](Images/en/TasksScheduler1.png)
 
 ##### Manage accounts
 You can edit accounts by right clicking on them\
@@ -107,7 +110,7 @@ Russian and Ukrainian, then you can help us
 with translation on them\
 For every language its required to translate this
 README.md file and create its own resx file in the
-folder /Localization/Resources\
+folder /Localization/Resources
 
 ### Plans and features
 Some features are still in development
@@ -121,6 +124,7 @@ Some features are still in development
 - [X] Migration service for settings
 - [X] Ability to edit accounts
 - [X] Localization to other languages
+- [X] Background task for check-in
 - [ ] Accounts reordering
 - [ ] Update system
 - [ ] Automation for web events
@@ -128,4 +132,3 @@ Some features are still in development
 - [ ] Reward claiming notification (e.g. windows,
 telegram, email)
 - [ ] Reminder system
-- [ ] Background service for check-in

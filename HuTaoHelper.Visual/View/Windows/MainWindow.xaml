@@ -1,0 +1,94 @@
+﻿<Window x:Class="HuTaoHelper.Visual.View.Windows.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Loaded="MainWindow_OnLoaded"
+        Closing="MainWindow_OnClosing"
+        ResizeMode="CanResizeWithGrip"
+        Title="HuTaoHelper" Height="550" Width="550">
+    <materialDesign:DialogHost Identifier="RootDialog">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Menu Grid.Row="0" materialDesign:MenuAssist.TopLevelMenuItemHeight="40">
+                <MenuItem Header="{Binding Path=LocMenuTools, Source={StaticResource Translations}}">
+                    <MenuItem
+                        Header="{Binding Path=LocMenuRefreshAllAccounts, Source={StaticResource Translations}}"
+                        Name="RefreshAccountsMenu"
+                        Click="RefreshAccountsMenu_OnClick"
+                        Icon="{materialDesign:PackIcon Kind=CloudRefresh}" />
+                    <MenuItem
+                        Header="{Binding Path=LocMenuAddAccount, Source={StaticResource Translations}}"
+                        Name="AddAccount"
+                        Click="AddAccount_OnClick"
+                        Icon="{materialDesign:PackIcon Kind=AccountPlus}" />
+                </MenuItem>
+                <MenuItem Header="{Binding Path=LocMenuAutomation, Source={StaticResource Translations}}">
+                    <MenuItem
+                        Header="{Binding Path=LocMenuAutomationDailyCheckIn, Source={StaticResource Translations}}"
+                        Name="DailyCheckInTask"
+                        Click="DailyCheckInTask_OnClick"
+                        IsCheckable="True"
+                        IsChecked="False" />
+                </MenuItem>
+                <MenuItem Header="{Binding Path=LocMenuLanguage, Source={StaticResource Translations}}" Name="LanguagesMenu"/>
+            </Menu>
+            <ListView Grid.Row="1" Name="AccountsList" SelectionChanged="AccountsList_OnSelectionChanged">
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem" BasedOn="{StaticResource MaterialDesignListBoxItem}">
+                        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                        <Setter Property="ContextMenu">
+                            <Setter.Value>
+                                <ContextMenu>
+                                    <MenuItem Name="AccountChangeTitleMenu" Header="{Binding Path=LocMenuChangeTitle, Source={StaticResource Translations}}">
+                                        <MenuItem.Style>
+                                            <Style TargetType="MenuItem"
+                                                   BasedOn="{StaticResource MaterialDesignMenuItem}">
+                                                <EventSetter Event="Click" Handler="AccountChangeTitleMenu_OnClick" />
+                                            </Style>
+                                        </MenuItem.Style>
+                                    </MenuItem>
+                                    <MenuItem Name="AccountReauthenticateMenu" Header="{Binding Path=LocMenuReauthenticate, Source={StaticResource Translations}}">
+                                        <MenuItem.Style>
+                                            <Style TargetType="MenuItem"
+                                                   BasedOn="{StaticResource MaterialDesignMenuItem}">
+                                                <EventSetter Event="Click" Handler="AccountReauthenticateMenu_OnClick" />
+                                            </Style>
+                                        </MenuItem.Style>
+                                    </MenuItem>
+                                    <MenuItem Name="AccountRefreshMenu" Header="{Binding Path=LocMenuRefresh, Source={StaticResource Translations}}">
+                                        <MenuItem.Style>
+                                            <Style TargetType="MenuItem"
+                                                   BasedOn="{StaticResource MaterialDesignMenuItem}">
+                                                <EventSetter Event="Click" Handler="AccountRefreshMenu_OnClick" />
+                                            </Style>
+                                        </MenuItem.Style>
+                                    </MenuItem>
+                                    <Separator />
+                                    <MenuItem Name="AccountRemoveMenu" Header="{Binding Path=LocMenuRemove, Source={StaticResource Translations}}">
+                                        <MenuItem.Style>
+                                            <Style TargetType="MenuItem"
+                                                   BasedOn="{StaticResource MaterialDesignMenuItem}">
+                                                <EventSetter Event="Click" Handler="AccountRemoveMenu_OnClick" />
+                                            </Style>
+                                        </MenuItem.Style>
+                                    </MenuItem>
+                                </ContextMenu>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </ListView.ItemContainerStyle>
+            </ListView>
+            <materialDesign:Snackbar Grid.Row="1" Name="EventsLog" VerticalAlignment="Bottom" />
+        </Grid>
+    </materialDesign:DialogHost>
+</Window>

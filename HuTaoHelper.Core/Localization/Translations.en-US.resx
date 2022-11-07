@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+            
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <data name="LocMenuRefreshAllAccounts" xml:space="preserve">
+        <value>Refresh all accounts info</value>
+    </data>
+    <data name="LocLanguageChanged" xml:space="preserve">
+        <value>Language changed to English</value>
+    </data>
+    <data name="LocMenuTools" xml:space="preserve">
+        <value>Tools</value>
+    </data>
+    <data name="LocMenuAddAccount" xml:space="preserve">
+        <value>Add an account</value>
+    </data>
+    <data name="LocMenuLanguage" xml:space="preserve">
+        <value>Language</value>
+    </data>
+    <data name="LocMenuChangeTitle" xml:space="preserve">
+        <value>Change title</value>
+    </data>
+    <data name="LocMenuReauthenticate" xml:space="preserve">
+        <value>Reauthenticate</value>
+    </data>
+    <data name="LocMenuRefresh" xml:space="preserve">
+        <value>Refresh information</value>
+    </data>
+    <data name="LocMenuRemove" xml:space="preserve">
+        <value>Remove</value>
+    </data>
+    <data name="LocWebLoginButton" xml:space="preserve">
+        <value>this button</value>
+    </data>
+    <data name="LocWebLoginLabel" xml:space="preserve">
+        <value>Please, authenticate and click</value>
+    </data>
+    <data name="LocWebLoginAuthentication" xml:space="preserve">
+        <value>Authentication</value>
+    </data>
+    <data name="LocChangeTitleHeader" xml:space="preserve">
+        <value>Change title:</value>
+    </data>
+    <data name="LocChangeTitleHint" xml:space="preserve">
+        <value>Custom title (optional)</value>
+    </data>
+    <data name="LocDialogAccept" xml:space="preserve">
+        <value>ACCEPT</value>
+    </data>
+    <data name="LocDialogCancel" xml:space="preserve">
+        <value>CANCEL</value>
+    </data>
+    <data name="LocAddAccountHeader" xml:space="preserve">
+        <value>New account:</value>
+    </data>
+    <data name="LocAddAccountLoginHint" xml:space="preserve">
+        <value>Login / email</value>
+    </data>
+    <data name="LogAddAccountPassword" xml:space="preserve">
+        <value>Password</value>
+    </data>
+    <data name="LocRequiredField" xml:space="preserve">
+        <value>Field is required</value>
+    </data>
+    <data name="LocGameHandleNotFound" xml:space="preserve">
+        <value>Running game instances not found</value>
+    </data>
+    <data name="LocGameHandleSelectionHeader" xml:space="preserve">
+        <value>Select game instance:</value>
+    </data>
+    <data name="LocCheckInAlready" xml:space="preserve">
+        <value>Already claimed check-in reward</value>
+    </data>
+    <data name="LocCheckInReward" xml:space="preserve">
+        <value>Reward claimed: $1 x$2</value>
+    </data>
+    <data name="LocAllAccountsRefreshed" xml:space="preserve">
+        <value>Accounts information refreshed</value>
+    </data>
+    <data name="LocAccountRefreshed" xml:space="preserve">
+        <value>Account "$1" information refreshed</value>
+    </data>
+    <data name="LocAuthenticationSuccessful" xml:space="preserve">
+        <value>Account succesfully authenticated!</value>
+    </data>
+    <data name="LocAuthenticationError" xml:space="preserve">
+        <value>Error authenticating account</value>
+    </data>
+    <data name="LocWebLoginNoAuthentication" xml:space="preserve">
+        <value>I don't see authentication data :(</value>
+    </data>
+    <data name="LocMenuAutomation" xml:space="preserve">
+        <value>Automation</value>
+    </data>
+    <data name="LocMenuAutomationDailyCheckIn" xml:space="preserve">
+        <value>Daily check-in background task</value>
+    </data>
+</root>
