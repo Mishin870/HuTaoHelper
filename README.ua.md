@@ -1,5 +1,7 @@
 # HuTaoHelper
-[[EN](README.md) | [RU](README.ru.md) | UA]
+[![English](https://img.shields.io/badge/lang-English-red.svg)](README.md)
+[![English](https://img.shields.io/badge/мова-Українська-green.svg)](README.ua.md)
+[![English](https://img.shields.io/badge/язык-Русский-blue.svg)](README.ru.md)
 
 Менеджер акаунтів та інструмент автоматизації для
 однієї аніме гри
