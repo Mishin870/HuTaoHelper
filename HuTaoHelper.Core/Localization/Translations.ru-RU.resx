@@ -111,4 +111,7 @@
     <data name="LocMenuAutomationDailyCheckIn" xml:space="preserve">
         <value>Фоновая задача ежедневных отметок</value>
     </data>
+    <data name="LocMenuExit" xml:space="preserve">
+        <value>Выход</value>
+    </data>
 </root>

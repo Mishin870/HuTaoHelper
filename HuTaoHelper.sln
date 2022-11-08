@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HuTaoHelper.Console", "HuTa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HuTaoHelper.Visual", "HuTaoHelper.Visual\HuTaoHelper.Visual.csproj", "{504EE169-1BFE-46F1-9A9E-BC5F137D43C9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HuTaoHelper.Notifications", "HuTaoHelper.Notifications\HuTaoHelper.Notifications.csproj", "{438BC7CC-3357-488E-AB4E-283C4B00B8C1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{504EE169-1BFE-46F1-9A9E-BC5F137D43C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{504EE169-1BFE-46F1-9A9E-BC5F137D43C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{504EE169-1BFE-46F1-9A9E-BC5F137D43C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{438BC7CC-3357-488E-AB4E-283C4B00B8C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{438BC7CC-3357-488E-AB4E-283C4B00B8C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{438BC7CC-3357-488E-AB4E-283C4B00B8C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{438BC7CC-3357-488E-AB4E-283C4B00B8C1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

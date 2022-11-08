@@ -111,4 +111,7 @@
     <data name="LocMenuAutomationDailyCheckIn" xml:space="preserve">
         <value />
     </data>
+    <data name="LocMenuExit" xml:space="preserve">
+        <value />
+    </data>
 </root>

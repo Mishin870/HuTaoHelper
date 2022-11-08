@@ -1,4 +1,4 @@
-﻿namespace HuTaoHelper.Visual; 
+﻿namespace HuTaoHelper.Visual;
 
 public partial class App {
 }

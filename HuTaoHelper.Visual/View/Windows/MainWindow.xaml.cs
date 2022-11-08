@@ -7,6 +7,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Input;
+using Hardcodet.Wpf.TaskbarNotification;
 using HuTaoHelper.Core.Core;
 using HuTaoHelper.Core.Localization;
 using HuTaoHelper.Core.Web.Tools;
@@ -21,7 +22,8 @@ namespace HuTaoHelper.Visual.View.Windows;
 
 public partial class MainWindow {
 	private readonly SnackbarMessageQueue EventQueue = new();
-	
+	private readonly TaskbarIcon AppIcon;
+
 	public MainWindow() {
 		InitializeComponent();
 		CommandBindings.Add(new CommandBinding(GlobalCommands.CheckIn, DoCheckIn));
@@ -34,10 +36,18 @@ public partial class MainWindow {
 			});
 		};
 		Application.Current.Exit += Application_OnExit;
+
+		var showCommand = new DelegateCommand {
+			CommandAction = () => { SetVisibleState(Visibility == Visibility.Hidden); }
+		};
+		AppIcon = (TaskbarIcon)FindResource("TrayIcon");
+		AppIcon.LeftClickCommand = showCommand;
+		StaticCommands.TrayExitAction = () => { Application.Current.Shutdown(); };
 	}
 
 	private void Application_OnExit(object sender, ExitEventArgs e) {
 		Scheduler.ChannelShutdown.RunAll();
+		AppIcon.Dispose();
 	}
 
 	private async void DoCheckIn(object sender, ExecutedRoutedEventArgs e) {
@@ -87,7 +97,7 @@ public partial class MainWindow {
 
 		EventsLog.MessageQueue = EventQueue;
 		Logging.EventsProcessor = (text, durationMs) => {
-			EventQueue.Enqueue($"{text}", null, null, 
+			EventQueue.Enqueue($"{text}", null, null,
 				null, false, false,
 				TimeSpan.FromMilliseconds(durationMs));
 		};
@@ -226,7 +236,22 @@ public partial class MainWindow {
 		} else {
 			TasksSchedulerHelper.Create(name, "daily", "Task for automatic daily check-ins");
 		}
-		
+
 		RefreshDailyCheckInTask();
+	}
+
+	private void MainWindow_OnStateChanged(object? sender, EventArgs e) {
+		if (WindowState == WindowState.Minimized) {
+			SetVisibleState(false);
+		}
+	}
+
+	private void SetVisibleState(bool visible) {
+		if (visible) {
+			Show();
+			WindowState = WindowState.Normal;
+		} else {
+			Hide();
+		}
 	}
 }

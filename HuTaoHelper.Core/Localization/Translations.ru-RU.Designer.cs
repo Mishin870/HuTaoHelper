@@ -8,6 +8,9 @@
 //------------------------------------------------------------------------------
 
 namespace HuTaoHelper.Core.Localization {
+    using System;
+    
+    
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>
@@ -35,7 +38,7 @@ namespace HuTaoHelper.Core.Localization {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("HuTaoHelper.Localization.Resources.Translations.ru-RU", typeof(Translations_ru_RU).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("HuTaoHelper.Core.Localization.Translations.ru-RU", typeof(Translations_ru_RU).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -224,6 +227,15 @@ namespace HuTaoHelper.Core.Localization {
         public static string LocMenuChangeTitle {
             get {
                 return ResourceManager.GetString("LocMenuChangeTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Выход.
+        /// </summary>
+        public static string LocMenuExit {
+            get {
+                return ResourceManager.GetString("LocMenuExit", resourceCulture);
             }
         }
         

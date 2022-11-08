@@ -233,6 +233,15 @@ namespace HuTaoHelper.Core.Localization {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
+        public static string LocMenuExit {
+            get {
+                return ResourceManager.GetString("LocMenuExit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
         public static string LocMenuLanguage {
             get {
                 return ResourceManager.GetString("LocMenuLanguage", resourceCulture);

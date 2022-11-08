@@ -8,6 +8,7 @@
         Loaded="MainWindow_OnLoaded"
         Closing="MainWindow_OnClosing"
         ResizeMode="CanResizeWithGrip"
+        StateChanged="MainWindow_OnStateChanged"
         Title="HuTaoHelper" Height="550" Width="550">
     <materialDesign:DialogHost Identifier="RootDialog">
         <Grid>
@@ -18,7 +19,7 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-
+            
             <Menu Grid.Row="0" materialDesign:MenuAssist.TopLevelMenuItemHeight="40">
                 <MenuItem Header="{Binding Path=LocMenuTools, Source={StaticResource Translations}}">
                     <MenuItem

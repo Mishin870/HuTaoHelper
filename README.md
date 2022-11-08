@@ -127,10 +127,10 @@ Some features are still in development
 - [X] Ability to edit accounts
 - [X] Localization to other languages
 - [X] Background task for check-in
+- [X] Minimizing to tray
 - [ ] Accounts reordering
 - [ ] Update system
 - [ ] Automation for web events
-- [ ] Minimizing to tray
 - [ ] Reward claiming notification (e.g. windows,
 telegram, email)
 - [ ] Reminder system
