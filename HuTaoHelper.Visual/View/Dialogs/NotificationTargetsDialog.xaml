@@ -56,18 +56,18 @@
                     Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"
                     IsCancel="True"
                     Style="{StaticResource MaterialDesignFlatButton}"
-                    Content="{Binding Path=LocDialogCancel, Source={StaticResource Translations}}">
+                    Content="{Binding Path=LocDialogAdd, Source={StaticResource Translations}}">
                 <Button.CommandParameter>
-                    <system:Boolean>False</system:Boolean>
+                    <utils:DialogExitCommand>ADD_NOTIFICATION_TARGET</utils:DialogExitCommand>
                 </Button.CommandParameter>
             </Button>
             <Button Margin="8,0,0,0"
                     Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"
                     IsCancel="True"
                     Style="{StaticResource MaterialDesignFlatButton}"
-                    Content="{Binding Path=LocDialogAdd, Source={StaticResource Translations}}">
+                    Content="{Binding Path=LocDialogCancel, Source={StaticResource Translations}}">
                 <Button.CommandParameter>
-                    <utils:DialogExitCommand>ADD_NOTIFICATION_TARGET</utils:DialogExitCommand>
+                    <system:Boolean>False</system:Boolean>
                 </Button.CommandParameter>
             </Button>
         </StackPanel>

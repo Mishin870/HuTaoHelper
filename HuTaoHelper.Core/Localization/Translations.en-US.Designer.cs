@@ -321,20 +321,29 @@ namespace HuTaoHelper.Core.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Bot token.
+        /// </summary>
+        public static string LocNotificationTelegramBotToken {
+            get {
+                return ResourceManager.GetString("LocNotificationTelegramBotToken", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Chat id.
+        /// </summary>
+        public static string LocNotificationTelegramChatId {
+            get {
+                return ResourceManager.GetString("LocNotificationTelegramChatId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Field is required.
         /// </summary>
         public static string LocRequiredField {
             get {
                 return ResourceManager.GetString("LocRequiredField", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Type.
-        /// </summary>
-        public static string LocType {
-            get {
-                return ResourceManager.GetString("LocType", resourceCulture);
             }
         }
         
@@ -371,6 +380,15 @@ namespace HuTaoHelper.Core.Localization {
         public static string LocWebLoginNoAuthentication {
             get {
                 return ResourceManager.GetString("LocWebLoginNoAuthentication", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wrong number format.
+        /// </summary>
+        public static string LocWrongIntFormat {
+            get {
+                return ResourceManager.GetString("LocWrongIntFormat", resourceCulture);
             }
         }
         

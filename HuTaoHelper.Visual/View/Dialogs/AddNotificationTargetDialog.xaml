@@ -7,6 +7,8 @@
              xmlns:system="clr-namespace:System;assembly=System.Runtime"
              xmlns:validation="clr-namespace:HuTaoHelper.Visual.View.Validation"
              xmlns:viewModels="clr-namespace:HuTaoHelper.Visual.View.ViewModels"
+             xmlns:utils="clr-namespace:HuTaoHelper.Visual.View.Utils"
+             xmlns:notifications="clr-namespace:HuTaoHelper.Visual.Notifications"
              mc:Ignorable="d"
              Loaded="AddNotificationTargetDialog_OnLoaded"
              d:DataContext="{d:DesignInstance viewModels:AddNotificationTargetViewModel, IsDesignTimeCreatable=False}"
@@ -20,45 +22,52 @@
             <RowDefinition />
             <RowDefinition />
         </Grid.RowDefinitions>
-        <TextBlock Text="{Binding Path=LocAddNotificationTargetHeader, Source={StaticResource Translations}}"/>
+        <TextBlock Text="{Binding Path=LocAddNotificationTargetHeader, Source={StaticResource Translations}}" />
         <StackPanel Orientation="Vertical" Grid.Row="1" Margin="0 10 0 0">
-            <ComboBox Name="TypeSelector" ItemsSource="{Binding Types}" />
+            <ComboBox Name="TypeSelector" ItemsSource="{Binding Types}"
+                      SelectionChanged="TypeSelector_OnSelectionChanged"/>
         </StackPanel>
-        <TextBox Grid.Row="2"
-                 Margin="0,10,0,0"
-                 materialDesign:HintAssist.Hint="{Binding Path=LocAddAccountLoginHint, Source={StaticResource Translations}}"
-                 FontSize="18"
-                 Style="{StaticResource MaterialDesignFloatingHintTextBox}">
-            <TextBox.Text>
-                <Binding Path="Login" UpdateSourceTrigger="PropertyChanged">
-                    <Binding.ValidationRules>
-                        <validation:NotEmptyValidationRule ValidatesOnTargetUpdated="True" />
-                    </Binding.ValidationRules>
-                </Binding>
-            </TextBox.Text>
-        </TextBox>
-        <TextBox Grid.Row="3"
-                 Margin="0,10,0,0"
-                 materialDesign:HintAssist.Hint="{Binding Path=LogAddAccountPassword, Source={StaticResource Translations}}"
-                 FontSize="18"
-                 Style="{StaticResource MaterialDesignFloatingHintTextBox}">
-            <TextBox.Text>
-                <Binding Path="Password" UpdateSourceTrigger="PropertyChanged">
-                    <Binding.ValidationRules>
-                        <validation:NotEmptyValidationRule ValidatesOnTargetUpdated="True" />
-                    </Binding.ValidationRules>
-                </Binding>
-            </TextBox.Text>
-        </TextBox>
-        <TextBox Grid.Row="4"
-                 Margin="0,10,0,0"
-                 materialDesign:HintAssist.Hint="{Binding Path=LocChangeTitleHint, Source={StaticResource Translations}}"
-                 FontSize="18"
-                 Style="{StaticResource MaterialDesignFloatingHintTextBox}">
-            <TextBox.Text>
-                <Binding Path="Title" UpdateSourceTrigger="PropertyChanged"/>
-            </TextBox.Text>
-        </TextBox>
+        <ContentControl Name="Form" Grid.Row="2">
+            <ContentControl.Resources>
+                <DataTemplate DataType="{x:Type notifications:TelegramNotificationsViewModel}">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        
+                        <TextBox Grid.Row="0"
+                                 Margin="0,10,0,0"
+                                 materialDesign:HintAssist.Hint="{Binding Path=LocNotificationTelegramBotToken, Source={StaticResource Translations}}"
+                                 FontSize="18"
+                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}">
+                            <TextBox.Text>
+                                <Binding Path="BotToken">
+                                    <Binding.ValidationRules>
+                                        <validation:NotEmptyValidationRule ValidatesOnTargetUpdated="True" />
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </TextBox.Text>
+                        </TextBox>
+                        
+                        <TextBox Grid.Row="1"
+                                 Margin="0,10,0,0"
+                                 materialDesign:HintAssist.Hint="{Binding Path=LocNotificationTelegramChatId, Source={StaticResource Translations}}"
+                                 FontSize="18"
+                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}">
+                            <TextBox.Text>
+                                <Binding Path="ChatId">
+                                    <Binding.ValidationRules>
+                                        <validation:IntValidationRule ValidatesOnTargetUpdated="True" />
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </TextBox.Text>
+                        </TextBox>
+                    </Grid>
+                </DataTemplate>
+            </ContentControl.Resources>
+        </ContentControl>
+        
         <StackPanel Grid.Row="5"
                     Margin="0,16,0,0"
                     Orientation="Horizontal">
@@ -67,7 +76,7 @@
                     Style="{StaticResource MaterialDesignFlatButton}"
                     Content="{Binding Path=LocDialogAccept, Source={StaticResource Translations}}">
                 <Button.CommandParameter>
-                    <system:Boolean>True</system:Boolean>
+                    <utils:DialogExitCommand>ADD_NOTIFICATION_TARGET_FINAL</utils:DialogExitCommand>
                 </Button.CommandParameter>
             </Button>
             <Button Margin="8,0,0,0"

@@ -1,6 +1,8 @@
-﻿using System.Reflection;
+﻿using System.Globalization;
+using System.Reflection;
 using HuTaoHelper.Console.Commands;
 using HuTaoHelper.Core.Core;
+using HuTaoHelper.Core.Localization;
 
 namespace HuTaoHelper.Console; 
 
@@ -22,6 +24,7 @@ public class Program {
 				Logging.PostEvent(@$"Command not found: {commandName}");
 			} else {
 				Settings.Load();
+				Translations.Culture = CultureInfo.GetCultureInfo(Settings.Instance.Language);
 				command.Execute(args.Skip(1).ToList());
 			}
 		} else {

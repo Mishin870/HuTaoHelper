@@ -123,7 +123,13 @@
     <data name="LocAddNotificationTargetHeader" xml:space="preserve">
         <value>Add notification target</value>
     </data>
-    <data name="LocType" xml:space="preserve">
-        <value>Type</value>
+    <data name="LocNotificationTelegramBotToken" xml:space="preserve">
+        <value>Bot token</value>
+    </data>
+    <data name="LocNotificationTelegramChatId" xml:space="preserve">
+        <value>Chat id</value>
+    </data>
+    <data name="LocWrongIntFormat" xml:space="preserve">
+        <value>Wrong number format</value>
     </data>
 </root>

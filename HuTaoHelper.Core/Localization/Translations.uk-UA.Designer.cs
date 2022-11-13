@@ -321,20 +321,29 @@ namespace HuTaoHelper.Core.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Токен бота.
+        /// </summary>
+        public static string LocNotificationTelegramBotToken {
+            get {
+                return ResourceManager.GetString("LocNotificationTelegramBotToken", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Id чату.
+        /// </summary>
+        public static string LocNotificationTelegramChatId {
+            get {
+                return ResourceManager.GetString("LocNotificationTelegramChatId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Поле обов&apos;язково для заповнення.
         /// </summary>
         public static string LocRequiredField {
             get {
                 return ResourceManager.GetString("LocRequiredField", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Тип.
-        /// </summary>
-        public static string LocType {
-            get {
-                return ResourceManager.GetString("LocType", resourceCulture);
             }
         }
         
@@ -371,6 +380,15 @@ namespace HuTaoHelper.Core.Localization {
         public static string LocWebLoginNoAuthentication {
             get {
                 return ResourceManager.GetString("LocWebLoginNoAuthentication", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Неправильний формат числа.
+        /// </summary>
+        public static string LocWrongIntFormat {
+            get {
+                return ResourceManager.GetString("LocWrongIntFormat", resourceCulture);
             }
         }
         

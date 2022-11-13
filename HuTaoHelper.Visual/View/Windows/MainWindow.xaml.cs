@@ -14,6 +14,7 @@ using HuTaoHelper.Core.Web.Tools;
 using HuTaoHelper.Notifications.Registry;
 using HuTaoHelper.Visual.Control;
 using HuTaoHelper.Visual.Localization;
+using HuTaoHelper.Visual.Notifications;
 using HuTaoHelper.Visual.View.Dialogs;
 using HuTaoHelper.Visual.View.Utils;
 using HuTaoHelper.Visual.View.ViewModels;
@@ -264,6 +265,9 @@ public partial class MainWindow {
 		var view = new NotificationTargetsDialog {
 			DataContext = model
 		};
+
+		AddNotificationTargetViewModel addModel = null;
+		
 		await DialogHost.Show(view, ViewUtils.DIALOG_ROOT,
 			null, (_, args) => {
 				if (args.Parameter is false) return;
@@ -273,14 +277,19 @@ public partial class MainWindow {
 				if (args.Parameter is DialogExitCommand command) {
 					if (command == DialogExitCommand.ADD_NOTIFICATION_TARGET) {
 						var types = NotificationsRegistry.AllTypes();
+						addModel = new AddNotificationTargetViewModel {
+							Types = types,
+							Target = VisualNotificationsRegistry.Build(types[0])
+						};
 						
 						args.Session.UpdateContent(new AddNotificationTargetDialog {
-							DataContext = new AddNotificationTargetViewModel {
-								Types = types,
-								Target = NotificationsRegistry.Build(types[0])
-							}
+							DataContext = addModel
 						});
 						return;
+					} else if (command == DialogExitCommand.ADD_NOTIFICATION_TARGET_FINAL) {
+						if (addModel != null) {
+							var x = 10;
+						}
 					}
 				}
 				
