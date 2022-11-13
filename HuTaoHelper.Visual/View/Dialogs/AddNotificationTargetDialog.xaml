@@ -1,0 +1,84 @@
+<UserControl x:Class="HuTaoHelper.Visual.View.Dialogs.AddNotificationTargetDialog"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:system="clr-namespace:System;assembly=System.Runtime"
+             xmlns:validation="clr-namespace:HuTaoHelper.Visual.View.Validation"
+             xmlns:viewModels="clr-namespace:HuTaoHelper.Visual.View.ViewModels"
+             mc:Ignorable="d"
+             Loaded="AddNotificationTargetDialog_OnLoaded"
+             d:DataContext="{d:DesignInstance viewModels:AddNotificationTargetViewModel, IsDesignTimeCreatable=False}"
+             d:DesignHeight="320" d:DesignWidth="300">
+    <Grid Margin="16">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <TextBlock Text="{Binding Path=LocAddNotificationTargetHeader, Source={StaticResource Translations}}"/>
+        <StackPanel Orientation="Vertical" Grid.Row="1" Margin="0 10 0 0">
+            <ComboBox Name="TypeSelector" ItemsSource="{Binding Types}" />
+        </StackPanel>
+        <TextBox Grid.Row="2"
+                 Margin="0,10,0,0"
+                 materialDesign:HintAssist.Hint="{Binding Path=LocAddAccountLoginHint, Source={StaticResource Translations}}"
+                 FontSize="18"
+                 Style="{StaticResource MaterialDesignFloatingHintTextBox}">
+            <TextBox.Text>
+                <Binding Path="Login" UpdateSourceTrigger="PropertyChanged">
+                    <Binding.ValidationRules>
+                        <validation:NotEmptyValidationRule ValidatesOnTargetUpdated="True" />
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
+        <TextBox Grid.Row="3"
+                 Margin="0,10,0,0"
+                 materialDesign:HintAssist.Hint="{Binding Path=LogAddAccountPassword, Source={StaticResource Translations}}"
+                 FontSize="18"
+                 Style="{StaticResource MaterialDesignFloatingHintTextBox}">
+            <TextBox.Text>
+                <Binding Path="Password" UpdateSourceTrigger="PropertyChanged">
+                    <Binding.ValidationRules>
+                        <validation:NotEmptyValidationRule ValidatesOnTargetUpdated="True" />
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
+        <TextBox Grid.Row="4"
+                 Margin="0,10,0,0"
+                 materialDesign:HintAssist.Hint="{Binding Path=LocChangeTitleHint, Source={StaticResource Translations}}"
+                 FontSize="18"
+                 Style="{StaticResource MaterialDesignFloatingHintTextBox}">
+            <TextBox.Text>
+                <Binding Path="Title" UpdateSourceTrigger="PropertyChanged"/>
+            </TextBox.Text>
+        </TextBox>
+        <StackPanel Grid.Row="5"
+                    Margin="0,16,0,0"
+                    Orientation="Horizontal">
+            <Button Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"
+                    IsDefault="True"
+                    Style="{StaticResource MaterialDesignFlatButton}"
+                    Content="{Binding Path=LocDialogAccept, Source={StaticResource Translations}}">
+                <Button.CommandParameter>
+                    <system:Boolean>True</system:Boolean>
+                </Button.CommandParameter>
+            </Button>
+            <Button Margin="8,0,0,0"
+                    Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"
+                    IsCancel="True"
+                    Style="{StaticResource MaterialDesignFlatButton}"
+                    Content="{Binding Path=LocDialogCancel, Source={StaticResource Translations}}">
+                <Button.CommandParameter>
+                    <system:Boolean>False</system:Boolean>
+                </Button.CommandParameter>
+            </Button>
+        </StackPanel>
+    </Grid>
+</UserControl>

@@ -114,4 +114,16 @@
     <data name="LocMenuExit" xml:space="preserve">
         <value>Выход</value>
     </data>
+    <data name="LocMenuNotificationTargets" xml:space="preserve">
+        <value>Уведомления</value>
+    </data>
+    <data name="LocDialogAdd" xml:space="preserve">
+        <value>ДОБАВИТЬ</value>
+    </data>
+    <data name="LocAddNotificationTargetHeader" xml:space="preserve">
+        <value>Добавить цель уведомления</value>
+    </data>
+    <data name="LocType" xml:space="preserve">
+        <value>Тип</value>
+    </data>
 </root>

@@ -40,4 +40,8 @@
       </EmbeddedResource>
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\HuTaoHelper.Notifications\HuTaoHelper.Notifications.csproj" />
+    </ItemGroup>
+
 </Project>

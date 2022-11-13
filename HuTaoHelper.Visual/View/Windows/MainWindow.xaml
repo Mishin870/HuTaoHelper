@@ -32,6 +32,11 @@
                         Name="AddAccount"
                         Click="AddAccount_OnClick"
                         Icon="{materialDesign:PackIcon Kind=AccountPlus}" />
+                    <MenuItem
+                        Header="{Binding Path=LocMenuNotificationTargets, Source={StaticResource Translations}}"
+                        Name="NotificationTargets"
+                        Click="NotificationTargets_OnClick"
+                        Icon="{materialDesign:PackIcon Kind=Notifications}" />
                 </MenuItem>
                 <MenuItem Header="{Binding Path=LocMenuAutomation, Source={StaticResource Translations}}">
                     <MenuItem

@@ -19,6 +19,7 @@ public static class DailyCheckIn {
 
 			if (signDayEntity.Data.IsSign) {
 				Logging.PostEvent(Translations.LocCheckInAlready);
+				account.MakeNotification(Translations.LocCheckInAlready);
 				return;
 			}
 			
@@ -32,9 +33,11 @@ public static class DailyCheckIn {
 
 			var givenAward = homeEntity.Data.Awards[currentDay];
 
-			Logging.PostEvent(Translations.LocCheckInReward
+			var text = Translations.LocCheckInReward
 				.Replace("$1", givenAward.Name)
-				.Replace("$2", givenAward.Count.ToString()));
+				.Replace("$2", givenAward.Count.ToString());
+			Logging.PostEvent(text);
+			account.MakeNotification(text);
 		} catch (Exception e) {
 			Logging.PostEvent(e);
 		}

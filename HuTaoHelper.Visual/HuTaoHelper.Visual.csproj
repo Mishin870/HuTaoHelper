@@ -14,7 +14,6 @@
         <Company>Mishin870</Company>
         <Product>HuTaoHelper</Product>
         <AssemblyVersion>1.0.4</AssemblyVersion>
-        <NeutralLanguage>es-US</NeutralLanguage>
         <ApplicationManifest>App.manifest</ApplicationManifest>
     </PropertyGroup>
 
@@ -27,6 +26,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\HuTaoHelper.Core\HuTaoHelper.Core.csproj" />
+      <ProjectReference Include="..\HuTaoHelper.Notifications\HuTaoHelper.Notifications.csproj" />
     </ItemGroup>
 
     <ItemGroup>
@@ -34,6 +34,8 @@
       <Resource Include="Images\Icon.ico" />
       <None Remove="Images\IconLight.ico" />
       <Resource Include="Images\IconLight.ico" />
+      <None Remove="Images\Telegram.png" />
+      <Resource Include="Images\Telegram.png" />
     </ItemGroup>
 
 </Project>

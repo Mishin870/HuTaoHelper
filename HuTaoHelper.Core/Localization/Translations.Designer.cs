@@ -89,6 +89,15 @@ namespace HuTaoHelper.Core.Localization {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
+        public static string LocAddNotificationTargetHeader {
+            get {
+                return ResourceManager.GetString("LocAddNotificationTargetHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
         public static string LocAllAccountsRefreshed {
             get {
                 return ResourceManager.GetString("LocAllAccountsRefreshed", resourceCulture);
@@ -155,6 +164,15 @@ namespace HuTaoHelper.Core.Localization {
         public static string LocDialogAccept {
             get {
                 return ResourceManager.GetString("LocDialogAccept", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string LocDialogAdd {
+            get {
+                return ResourceManager.GetString("LocDialogAdd", resourceCulture);
             }
         }
         
@@ -251,6 +269,15 @@ namespace HuTaoHelper.Core.Localization {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
+        public static string LocMenuNotificationTargets {
+            get {
+                return ResourceManager.GetString("LocMenuNotificationTargets", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
         public static string LocMenuReauthenticate {
             get {
                 return ResourceManager.GetString("LocMenuReauthenticate", resourceCulture);
@@ -299,6 +326,15 @@ namespace HuTaoHelper.Core.Localization {
         public static string LocRequiredField {
             get {
                 return ResourceManager.GetString("LocRequiredField", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string LocType {
+            get {
+                return ResourceManager.GetString("LocType", resourceCulture);
             }
         }
         

@@ -11,6 +11,7 @@ using Hardcodet.Wpf.TaskbarNotification;
 using HuTaoHelper.Core.Core;
 using HuTaoHelper.Core.Localization;
 using HuTaoHelper.Core.Web.Tools;
+using HuTaoHelper.Notifications.Registry;
 using HuTaoHelper.Visual.Control;
 using HuTaoHelper.Visual.Localization;
 using HuTaoHelper.Visual.View.Dialogs;
@@ -253,5 +254,52 @@ public partial class MainWindow {
 		} else {
 			Hide();
 		}
+	}
+
+	private async void NotificationTargets_OnClick(object sender, RoutedEventArgs e) {
+		var model = new NotificationTargetsViewModel {
+			Targets = Settings.Instance.Notifications
+		};
+
+		var view = new NotificationTargetsDialog {
+			DataContext = model
+		};
+		await DialogHost.Show(view, ViewUtils.DIALOG_ROOT,
+			null, (_, args) => {
+				if (args.Parameter is false) return;
+				
+				args.Cancel();
+				
+				if (args.Parameter is DialogExitCommand command) {
+					if (command == DialogExitCommand.ADD_NOTIFICATION_TARGET) {
+						var types = NotificationsRegistry.AllTypes();
+						
+						args.Session.UpdateContent(new AddNotificationTargetDialog {
+							DataContext = new AddNotificationTargetViewModel {
+								Types = types,
+								Target = NotificationsRegistry.Build(types[0])
+							}
+						});
+						return;
+					}
+				}
+				
+				/*
+
+				var account = addAccountViewModel.ToAccount();
+				if (account == null) {
+					return;
+				}
+
+				args.Session.UpdateContent(new PreloaderDialog());
+
+				if (Automation.AuthenticateWeb(account)) {
+					account.RefreshGameInformation().WaitAsync(CancellationToken.None);
+				}
+
+				Task.Delay(TimeSpan.FromSeconds(1))
+					.ContinueWith((t, _) => args.Session.Close(false), null,
+						TaskScheduler.FromCurrentSynchronizationContext());*/
+			});
 	}
 }

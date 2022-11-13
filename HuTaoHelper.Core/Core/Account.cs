@@ -41,9 +41,9 @@ public class Account {
 	/// </summary>
 	public ApiCookies Cookies { get; set; } = new();
 	/// <summary>
-	/// User id for telegram bot
+	/// Id of notification target
 	/// </summary>
-	public long TelegramId { get; set; }
+	public string? NotificationTarget { get; set; }
 
 	/// <summary>
 	/// Actual name for displaying account in lists
@@ -87,5 +87,11 @@ public class Account {
 		} catch (Exception) {
 			return false;
 		}
+	}
+
+	public void MakeNotification(object? text) {
+		if (NotificationTarget == null) return;
+		var target = Settings.Instance.GetNotificationTarget(NotificationTarget);
+		target?.Send(text);
 	}
 }

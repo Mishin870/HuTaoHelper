@@ -1,6 +1,8 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using System.Text;
 using HuTaoHelper.Core.Core.Migrations;
+using HuTaoHelper.Notifications.Registry;
+using HuTaoHelper.Notifications.Target;
 using Newtonsoft.Json;
 
 namespace HuTaoHelper.Core.Core; 
@@ -25,7 +27,12 @@ public class Settings {
 	/// Current free id for new accounts
 	/// </summary>
 	public int IdCounter;
-	
+
+	/// <summary>
+	/// Configured notification targets
+	/// </summary>
+	public Dictionary<string, INotificationTarget> Notifications = new();
+
 	/// <summary>
 	/// Settings version for migrations
 	/// </summary>
@@ -39,7 +46,10 @@ public class Settings {
 	/// Save current settings <c>Instance</c> into a file
 	/// </summary>
 	public static void Save() {
-		File.WriteAllText(MakeFilePath(), JsonConvert.SerializeObject(Instance), Encoding.UTF8);
+		File.WriteAllText(MakeFilePath(),
+			JsonConvert.SerializeObject(Instance, 
+				new NotificationJsonConverter()), 
+			Encoding.UTF8);
 		ViewCallbacks.CallbackRefreshAccountsList();
 	}
 
@@ -56,7 +66,7 @@ public class Settings {
 			migrator.Run();
 			content = migrator.GetResult();
 			
-			var settings = JsonConvert.DeserializeObject<Settings>(content);
+			var settings = JsonConvert.DeserializeObject<Settings>(content, new NotificationJsonConverter());
 
 			if (settings != null) {
 				Instance = settings;
@@ -93,5 +103,23 @@ public class Settings {
 	/// <param name="account">Account to remove</param>
 	public void RemoveAccount(Account account) {
 		Accounts.Remove(account.Id);
+	}
+
+	/// <summary>
+	/// Register notification target in settings
+	/// </summary>
+	/// <param name="code">Code of target</param>
+	/// <param name="target"></param>
+	public void AddNotificationTarget(string code, INotificationTarget target) {
+		Notifications[code] = target;
+	}
+	
+	/// <summary>
+	/// Get registered notification target by code or null
+	/// </summary>
+	/// <param name="code"></param>
+	/// <returns></returns>
+	public INotificationTarget? GetNotificationTarget(string code) {
+		return Notifications.GetValueOrDefault(code);
 	}
 }

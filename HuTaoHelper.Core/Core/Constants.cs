@@ -8,7 +8,7 @@ namespace HuTaoHelper.Core.Core;
 /// </summary>
 [SuppressMessage("Usage", "CA2211:Non-constant fields should not be visible")]
 public static class Constants {
-	public static readonly long SettingsVersion = 2;
+	public static readonly long SettingsVersion = 3;
 	
 	public static readonly string GameName = Extract("R2Vuc2hpbiBJbXBhY3Q=");
 	public static readonly string GameProcessName = Extract("R2Vuc2hpbkltcGFjdA==");

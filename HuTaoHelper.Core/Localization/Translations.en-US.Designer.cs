@@ -87,6 +87,15 @@ namespace HuTaoHelper.Core.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add notification target.
+        /// </summary>
+        public static string LocAddNotificationTargetHeader {
+            get {
+                return ResourceManager.GetString("LocAddNotificationTargetHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Accounts information refreshed.
         /// </summary>
         public static string LocAllAccountsRefreshed {
@@ -155,6 +164,15 @@ namespace HuTaoHelper.Core.Localization {
         public static string LocDialogAccept {
             get {
                 return ResourceManager.GetString("LocDialogAccept", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ADD.
+        /// </summary>
+        public static string LocDialogAdd {
+            get {
+                return ResourceManager.GetString("LocDialogAdd", resourceCulture);
             }
         }
         
@@ -249,6 +267,15 @@ namespace HuTaoHelper.Core.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Notification targets.
+        /// </summary>
+        public static string LocMenuNotificationTargets {
+            get {
+                return ResourceManager.GetString("LocMenuNotificationTargets", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Reauthenticate.
         /// </summary>
         public static string LocMenuReauthenticate {
@@ -299,6 +326,15 @@ namespace HuTaoHelper.Core.Localization {
         public static string LocRequiredField {
             get {
                 return ResourceManager.GetString("LocRequiredField", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Type.
+        /// </summary>
+        public static string LocType {
+            get {
+                return ResourceManager.GetString("LocType", resourceCulture);
             }
         }
         
