@@ -8,6 +8,7 @@
              xmlns:viewModels="clr-namespace:HuTaoHelper.Visual.View.ViewModels"
              xmlns:target="clr-namespace:HuTaoHelper.Notifications.Target;assembly=HuTaoHelper.Notifications"
              xmlns:utils="clr-namespace:HuTaoHelper.Visual.View.Utils"
+             xmlns:notifications="clr-namespace:HuTaoHelper.Visual.Notifications"
              mc:Ignorable="d"
              d:DataContext="{d:DesignInstance viewModels:NotificationTargetsViewModel, IsDesignTimeCreatable=False}"
              d:DesignHeight="320" d:DesignWidth="300">
@@ -25,13 +26,7 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
-                        <ContentControl Content="{Binding Value}">
-                            <ContentControl.Resources>
-                                <DataTemplate DataType="{x:Type target:TelegramNotificationTarget}">
-                                    <Image Source="/Images/Telegram.png"></Image>
-                                </DataTemplate>
-                            </ContentControl.Resources>
-                        </ContentControl>
+                        <Image Source="{notifications:NotificationTargetIcons {Binding Value}}"/>
 
                         <StackPanel Orientation="Vertical" MinWidth="200" Margin="5 0 0 0">
                             <TextBlock Margin="2" FontWeight="Bold"
