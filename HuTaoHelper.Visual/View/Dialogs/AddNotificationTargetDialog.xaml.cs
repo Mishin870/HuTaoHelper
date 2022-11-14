@@ -1,6 +1,6 @@
 using System.Windows;
 using System.Windows.Controls;
-using HuTaoHelper.Visual.Notifications;
+using HuTaoHelper.Notifications.Registry;
 using HuTaoHelper.Visual.View.ViewModels;
 
 namespace HuTaoHelper.Visual.View.Dialogs; 
@@ -16,7 +16,7 @@ public partial class AddNotificationTargetDialog {
 
 	private void TypeSelector_OnSelectionChanged(object sender, SelectionChangedEventArgs e) {
 		if (DataContext is AddNotificationTargetViewModel model) {
-			model.Target = VisualNotificationsRegistry.Build((string)TypeSelector.SelectedItem);
+			model.Target = NotificationsRegistry.Build((string)TypeSelector.SelectedItem);
 			Form.DataContext = model.Target;
 			Form.Content = model.Target;
 		}

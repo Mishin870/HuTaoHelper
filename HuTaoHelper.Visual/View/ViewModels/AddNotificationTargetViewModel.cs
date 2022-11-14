@@ -1,9 +1,9 @@
 using System.Collections.Generic;
-using HuTaoHelper.Visual.Notifications;
+using HuTaoHelper.Notifications.Target;
 
 namespace HuTaoHelper.Visual.View.ViewModels;
 
 public class AddNotificationTargetViewModel : ViewModelBase {
 	public List<string> Types { get; set; }
-	public NotificationsViewModel? Target { get; set; }
+	public INotificationTarget? Target { get; set; }
 }

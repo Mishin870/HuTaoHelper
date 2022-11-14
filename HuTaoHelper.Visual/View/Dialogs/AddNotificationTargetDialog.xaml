@@ -8,7 +8,7 @@
              xmlns:validation="clr-namespace:HuTaoHelper.Visual.View.Validation"
              xmlns:viewModels="clr-namespace:HuTaoHelper.Visual.View.ViewModels"
              xmlns:utils="clr-namespace:HuTaoHelper.Visual.View.Utils"
-             xmlns:notifications="clr-namespace:HuTaoHelper.Visual.Notifications"
+             xmlns:target="clr-namespace:HuTaoHelper.Notifications.Target;assembly=HuTaoHelper.Notifications"
              mc:Ignorable="d"
              Loaded="AddNotificationTargetDialog_OnLoaded"
              d:DataContext="{d:DesignInstance viewModels:AddNotificationTargetViewModel, IsDesignTimeCreatable=False}"
@@ -29,7 +29,7 @@
         </StackPanel>
         <ContentControl Name="Form" Grid.Row="2">
             <ContentControl.Resources>
-                <DataTemplate DataType="{x:Type notifications:TelegramNotificationsViewModel}">
+                <DataTemplate DataType="{x:Type target:TelegramNotificationTarget}">
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition />

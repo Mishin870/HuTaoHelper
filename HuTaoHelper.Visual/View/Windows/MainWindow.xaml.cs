@@ -14,7 +14,6 @@ using HuTaoHelper.Core.Web.Tools;
 using HuTaoHelper.Notifications.Registry;
 using HuTaoHelper.Visual.Control;
 using HuTaoHelper.Visual.Localization;
-using HuTaoHelper.Visual.Notifications;
 using HuTaoHelper.Visual.View.Dialogs;
 using HuTaoHelper.Visual.View.Utils;
 using HuTaoHelper.Visual.View.ViewModels;
@@ -279,7 +278,7 @@ public partial class MainWindow {
 						var types = NotificationsRegistry.AllTypes();
 						addModel = new AddNotificationTargetViewModel {
 							Types = types,
-							Target = VisualNotificationsRegistry.Build(types[0])
+							Target = NotificationsRegistry.Build(types[0])
 						};
 						
 						args.Session.UpdateContent(new AddNotificationTargetDialog {
