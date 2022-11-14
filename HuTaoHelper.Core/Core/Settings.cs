@@ -122,4 +122,12 @@ public class Settings {
 	public INotificationTarget? GetNotificationTarget(string code) {
 		return Notifications.GetValueOrDefault(code);
 	}
+
+	/// <summary>
+	/// Remove registered notification target by code
+	/// </summary>
+	/// <param name="code"></param>
+	public void RemoveNotificationTarget(string code) {
+		Notifications.Remove(code);
+	}
 }

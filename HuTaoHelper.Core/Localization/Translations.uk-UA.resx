@@ -141,4 +141,10 @@
     <data name="LocNotificationCreated" xml:space="preserve">
         <value>Повідомлення "$1" створено</value>
     </data>
+    <data name="LocDialogDelete" xml:space="preserve">
+        <value>ВИЛУЧИТИ</value>
+    </data>
+    <data name="LocNotificationRemoved" xml:space="preserve">
+        <value>Повідомлення "$1" видалено</value>
+    </data>
 </root>

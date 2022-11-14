@@ -141,4 +141,10 @@
     <data name="LocNotificationCreated" xml:space="preserve">
         <value>Notification "$1" created</value>
     </data>
+    <data name="LocDialogDelete" xml:space="preserve">
+        <value>DELETE</value>
+    </data>
+    <data name="LocNotificationRemoved" xml:space="preserve">
+        <value>Notification "$1" deleted</value>
+    </data>
 </root>

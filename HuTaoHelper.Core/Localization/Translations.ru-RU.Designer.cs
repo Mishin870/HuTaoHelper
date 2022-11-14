@@ -186,6 +186,15 @@ namespace HuTaoHelper.Core.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to УДАЛИТЬ.
+        /// </summary>
+        public static string LocDialogDelete {
+            get {
+                return ResourceManager.GetString("LocDialogDelete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Не найдена ни одна запущенная игра.
         /// </summary>
         public static string LocGameHandleNotFound {
@@ -344,6 +353,15 @@ namespace HuTaoHelper.Core.Localization {
         public static string LocNotificationCreated {
             get {
                 return ResourceManager.GetString("LocNotificationCreated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Уведомление &quot;$1&quot; удалено.
+        /// </summary>
+        public static string LocNotificationRemoved {
+            get {
+                return ResourceManager.GetString("LocNotificationRemoved", resourceCulture);
             }
         }
         

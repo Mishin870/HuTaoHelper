@@ -1,0 +1,70 @@
+<UserControl x:Class="HuTaoHelper.Visual.View.Dialogs.NotificationTargetCardDialog"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:system="clr-namespace:System;assembly=System.Runtime"
+             xmlns:viewModels="clr-namespace:HuTaoHelper.Visual.View.ViewModels"
+             xmlns:utils="clr-namespace:HuTaoHelper.Visual.View.Utils"
+             xmlns:notifications="clr-namespace:HuTaoHelper.Visual.Notifications"
+             xmlns:target="clr-namespace:HuTaoHelper.Notifications.Target;assembly=HuTaoHelper.Notifications"
+             mc:Ignorable="d"
+             d:DataContext="{d:DesignInstance viewModels:NotificationTargetCardViewModel, IsDesignTimeCreatable=False}"
+             d:DesignHeight="320" d:DesignWidth="300">
+    <StackPanel Margin="16" Orientation="Vertical">
+        <StackPanel Orientation="Horizontal">
+            <Image Source="{notifications:NotificationTargetIcons {Binding Target}}"
+                   VerticalAlignment="Top"/>
+            
+            <StackPanel Orientation="Vertical" MinWidth="200" Margin="5 0 0 0" VerticalAlignment="Top">
+                <TextBlock Margin="2" FontWeight="Bold" FontSize="20"
+                           Text="{Binding Code}" />
+
+                <ContentControl Content="{Binding Target}">
+                    <ContentControl.Resources>
+                        <DataTemplate DataType="{x:Type target:TelegramNotificationTarget}">
+                            <StackPanel Orientation="Vertical">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Margin="2" FontWeight="Bold"
+                                               Text="{Binding Path=LocNotificationTelegramBotToken, Source={StaticResource Translations}}" />
+                                    <TextBlock Margin="2"
+                                               Text="{Binding BotToken}" />
+                                </StackPanel>
+                                
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Margin="2" FontWeight="Bold"
+                                               Text="{Binding Path=LocNotificationTelegramChatId, Source={StaticResource Translations}}" />
+                                    <TextBlock Margin="2"
+                                               Text="{Binding ChatId}" />
+                                </StackPanel>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ContentControl.Resources>
+                </ContentControl>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel
+            Margin="0,16,0,0"
+                    Orientation="Horizontal">
+            <Button Margin="8,0,0,0"
+                    Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"
+                    IsCancel="True"
+                    Style="{StaticResource MaterialDesignFlatDangerButton}"
+                    Content="{Binding Path=LocDialogDelete, Source={StaticResource Translations}}">
+                <Button.CommandParameter>
+                    <utils:DialogExitCommand>DELETE_NOTIFICATION_TARGET</utils:DialogExitCommand>
+                </Button.CommandParameter>
+            </Button>
+            <Button Margin="8,0,0,0"
+                    Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"
+                    IsCancel="True"
+                    Style="{StaticResource MaterialDesignFlatButton}"
+                    Content="{Binding Path=LocDialogCancel, Source={StaticResource Translations}}">
+                <Button.CommandParameter>
+                    <system:Boolean>False</system:Boolean>
+                </Button.CommandParameter>
+            </Button>
+        </StackPanel>
+    </StackPanel>
+</UserControl>

@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Globalization;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
@@ -12,6 +14,7 @@ using HuTaoHelper.Core.Core;
 using HuTaoHelper.Core.Localization;
 using HuTaoHelper.Core.Web.Tools;
 using HuTaoHelper.Notifications.Registry;
+using HuTaoHelper.Notifications.Target;
 using HuTaoHelper.Visual.Control;
 using HuTaoHelper.Visual.Localization;
 using HuTaoHelper.Visual.View.Dialogs;
@@ -259,6 +262,7 @@ public partial class MainWindow {
 	private async void NotificationTargets_OnClick(object sender, RoutedEventArgs e) {
 		var model = new NotificationTargetsViewModel {
 			Targets = Settings.Instance.Notifications
+				.ToDictionary(x=>x.Key, y=>y.Value)
 		};
 
 		var view = new NotificationTargetsDialog {
@@ -266,42 +270,81 @@ public partial class MainWindow {
 		};
 
 		AddNotificationTargetViewModel? addModel = null;
-		
+		NotificationTargetCardViewModel? cardModel = null;
+
 		await DialogHost.Show(view, ViewUtils.DIALOG_ROOT,
 			null, (_, args) => {
 				if (args.Parameter is false) return;
-				
+
 				args.Cancel();
-				
-				if (args.Parameter is DialogExitCommand command) {
-					if (command == DialogExitCommand.ADD_NOTIFICATION_TARGET) {
-						var types = NotificationsRegistry.AllTypes();
-						addModel = new AddNotificationTargetViewModel {
-							Types = types,
-							Target = NotificationsRegistry.Build(types[0])
+
+				var command = DialogExitCommand.NONE;
+				object? parameter = null;
+
+				if (args.Parameter is DialogExitCommand dialogExitCommand) {
+					command = dialogExitCommand;
+				} else if (args.Parameter is DialogExitContainer container) {
+					command = container.Command;
+					parameter = container.Parameter;
+				}
+
+				if (command == DialogExitCommand.ADD_NOTIFICATION_TARGET) {
+					var types = NotificationsRegistry.AllTypes();
+					addModel = new AddNotificationTargetViewModel {
+						Types = types,
+						Target = NotificationsRegistry.Build(types[0])
+					};
+
+					args.Session.UpdateContent(new AddNotificationTargetDialog {
+						DataContext = addModel
+					});
+				} else if (command == DialogExitCommand.SHOW_NOTIFICATION_TARGET) {
+					if (parameter is KeyValuePair<string, INotificationTarget> pair) {
+						cardModel = new NotificationTargetCardViewModel {
+							Code = pair.Key,
+							Target = pair.Value
 						};
-						
-						args.Session.UpdateContent(new AddNotificationTargetDialog {
-							DataContext = addModel
+
+						args.Session.UpdateContent(new NotificationTargetCardDialog {
+							DataContext = cardModel
 						});
-					} else if (command == DialogExitCommand.ADD_NOTIFICATION_TARGET_FINAL) {
-						if (addModel != null) {
-							if (string.IsNullOrWhiteSpace(addModel.Code)) return;
-							if (Settings.Instance.GetNotificationTarget(addModel.Code) != null) return;
-							if (addModel.Target == null) return;
-							if (!addModel.Target.IsValid()) return;
-							
-							Settings.Instance.AddNotificationTarget(addModel.Code, addModel.Target);
-							
-							args.Session.UpdateContent(new PreloaderDialog());
-							Task.Delay(TimeSpan.FromSeconds(1))
-								.ContinueWith((_, _) => {
-										Logging.PostEvent(Translations.LocNotificationCreated
-											.Replace("$1", addModel.Code));
-										args.Session.Close(false);
-									}, null,
-									TaskScheduler.FromCurrentSynchronizationContext());
-						}
+					}
+				} else if (command == DialogExitCommand.DELETE_NOTIFICATION_TARGET) {
+					if (cardModel != null) {
+						Application.Current.Dispatcher.Invoke((Action)delegate {
+							Settings.Instance.RemoveNotificationTarget(cardModel.Code);							
+						});
+
+						args.Session.UpdateContent(new PreloaderDialog());
+						Task.Delay(TimeSpan.FromSeconds(1))
+							.ContinueWith((_, _) => {
+									Logging.PostEvent(Translations.LocNotificationRemoved
+										.Replace("$1", cardModel.Code));
+									cardModel = null;
+									args.Session.Close(false);
+								}, null,
+								TaskScheduler.FromCurrentSynchronizationContext());
+					}
+				} else if (command == DialogExitCommand.ADD_NOTIFICATION_TARGET_FINAL) {
+					if (addModel != null) {
+						if (string.IsNullOrWhiteSpace(addModel.Code)) return;
+						if (Settings.Instance.GetNotificationTarget(addModel.Code) != null) return;
+						if (addModel.Target == null) return;
+						if (!addModel.Target.IsValid()) return;
+
+						Application.Current.Dispatcher.Invoke((Action)delegate {
+							Settings.Instance.AddNotificationTarget(addModel.Code, addModel.Target);							
+						});
+
+						args.Session.UpdateContent(new PreloaderDialog());
+						Task.Delay(TimeSpan.FromSeconds(1))
+							.ContinueWith((_, _) => {
+									Logging.PostEvent(Translations.LocNotificationCreated
+										.Replace("$1", addModel.Code));
+									addModel = null;
+									args.Session.Close(false);
+								}, null,
+								TaskScheduler.FromCurrentSynchronizationContext());
 					}
 				}
 			});
