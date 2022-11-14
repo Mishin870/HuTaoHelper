@@ -42,7 +42,7 @@
                                  FontSize="18"
                                  Style="{StaticResource MaterialDesignFloatingHintTextBox}">
                             <TextBox.Text>
-                                <Binding Path="BotToken">
+                                <Binding Path="BotToken" UpdateSourceTrigger="PropertyChanged">
                                     <Binding.ValidationRules>
                                         <validation:NotEmptyValidationRule ValidatesOnTargetUpdated="True" />
                                     </Binding.ValidationRules>
@@ -56,7 +56,7 @@
                                  FontSize="18"
                                  Style="{StaticResource MaterialDesignFloatingHintTextBox}">
                             <TextBox.Text>
-                                <Binding Path="ChatId">
+                                <Binding Path="ChatId" UpdateSourceTrigger="PropertyChanged">
                                     <Binding.ValidationRules>
                                         <validation:IntValidationRule ValidatesOnTargetUpdated="True" />
                                     </Binding.ValidationRules>
