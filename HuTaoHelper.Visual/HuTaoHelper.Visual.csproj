@@ -36,6 +36,8 @@
       <Resource Include="Images\IconLight.ico" />
       <None Remove="Images\Telegram.png" />
       <Resource Include="Images\Telegram.png" />
+      <None Remove="Images\Unknown.png" />
+      <Resource Include="Images\Unknown.png" />
     </ItemGroup>
 
 </Project>

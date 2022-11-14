@@ -36,7 +36,7 @@ public class NotificationTargetIcons : MarkupExtension {
 			if (values[0] is not INotificationTarget target) {
 				return "";
 			} else {
-				var image = Icons.GetValueOrDefault(target.NotificationType(), "");
+				var image = Icons.GetValueOrDefault(target.NotificationType(), "/Images/Unknown.png");
 				
 				return new BitmapImage(
 					new Uri($"pack://application:,,,/HuTaoHelper;component{image}", UriKind.Absolute));
