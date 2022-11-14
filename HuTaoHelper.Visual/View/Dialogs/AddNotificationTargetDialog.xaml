@@ -22,12 +22,31 @@
             <RowDefinition />
             <RowDefinition />
         </Grid.RowDefinitions>
+        
         <TextBlock Text="{Binding Path=LocAddNotificationTargetHeader, Source={StaticResource Translations}}" />
+        
         <StackPanel Orientation="Vertical" Grid.Row="1" Margin="0 10 0 0">
             <ComboBox Name="TypeSelector" ItemsSource="{Binding Types}"
                       SelectionChanged="TypeSelector_OnSelectionChanged"/>
         </StackPanel>
-        <ContentControl Name="Form" Grid.Row="2">
+        
+        <StackPanel Orientation="Vertical" Grid.Row="2" Margin="0 10 0 0">
+            <TextBox Margin="0,10,0,0"
+                     materialDesign:HintAssist.Hint="{Binding Path=LocNotificationCode, Source={StaticResource Translations}}"
+                     FontSize="18"
+                     Style="{StaticResource MaterialDesignFloatingHintTextBox}">
+                <TextBox.Text>
+                    <Binding Path="Code" UpdateSourceTrigger="PropertyChanged">
+                        <Binding.ValidationRules>
+                            <validation:NotEmptyValidationRule ValidatesOnTargetUpdated="True" />
+                            <validation:NotExistNotificationCodeValidationRule ValidatesOnTargetUpdated="True" />
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
+        </StackPanel>
+        
+        <ContentControl Name="Form" Grid.Row="3">
             <ContentControl.Resources>
                 <DataTemplate DataType="{x:Type target:TelegramNotificationTarget}">
                     <Grid>

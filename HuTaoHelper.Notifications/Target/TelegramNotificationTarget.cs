@@ -15,6 +15,10 @@ public sealed class TelegramNotificationTarget : INotificationTarget {
 		client.SendTextMessageAsync(new ChatId(ChatId), $"{text}", ParseMode.Html);
 	}
 
+	public bool IsValid() {
+		return !string.IsNullOrWhiteSpace(BotToken);
+	}
+
 	public string NotificationType() {
 		return "telegram";
 	}

@@ -132,4 +132,13 @@
     <data name="LocWrongIntFormat" xml:space="preserve">
         <value />
     </data>
+    <data name="LocNotificationAlreadyExist" xml:space="preserve">
+        <value />
+    </data>
+    <data name="LocNotificationCode" xml:space="preserve">
+        <value />
+    </data>
+    <data name="LocNotificationCreated" xml:space="preserve">
+        <value />
+    </data>
 </root>

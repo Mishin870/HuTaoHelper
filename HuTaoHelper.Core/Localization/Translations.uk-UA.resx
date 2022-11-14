@@ -132,4 +132,13 @@
     <data name="LocWrongIntFormat" xml:space="preserve">
         <value>Неправильний формат числа</value>
     </data>
+    <data name="LocNotificationAlreadyExist" xml:space="preserve">
+        <value>Повідомлення вже існує</value>
+    </data>
+    <data name="LocNotificationCode" xml:space="preserve">
+        <value>Код повідомлення</value>
+    </data>
+    <data name="LocNotificationCreated" xml:space="preserve">
+        <value>Повідомлення "$1" створено</value>
+    </data>
 </root>

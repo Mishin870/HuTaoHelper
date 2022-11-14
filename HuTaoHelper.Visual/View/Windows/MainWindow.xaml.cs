@@ -156,7 +156,7 @@ public partial class MainWindow {
 				}
 
 				Task.Delay(TimeSpan.FromSeconds(1))
-					.ContinueWith((t, _) => args.Session.Close(false), null,
+					.ContinueWith((_, _) => args.Session.Close(false), null,
 						TaskScheduler.FromCurrentSynchronizationContext());
 			});
 	}
@@ -265,7 +265,7 @@ public partial class MainWindow {
 			DataContext = model
 		};
 
-		AddNotificationTargetViewModel addModel = null;
+		AddNotificationTargetViewModel? addModel = null;
 		
 		await DialogHost.Show(view, ViewUtils.DIALOG_ROOT,
 			null, (_, args) => {
@@ -284,30 +284,26 @@ public partial class MainWindow {
 						args.Session.UpdateContent(new AddNotificationTargetDialog {
 							DataContext = addModel
 						});
-						return;
 					} else if (command == DialogExitCommand.ADD_NOTIFICATION_TARGET_FINAL) {
 						if (addModel != null) {
-							var x = 10;
+							if (string.IsNullOrWhiteSpace(addModel.Code)) return;
+							if (Settings.Instance.GetNotificationTarget(addModel.Code) != null) return;
+							if (addModel.Target == null) return;
+							if (!addModel.Target.IsValid()) return;
+							
+							Settings.Instance.AddNotificationTarget(addModel.Code, addModel.Target);
+							
+							args.Session.UpdateContent(new PreloaderDialog());
+							Task.Delay(TimeSpan.FromSeconds(1))
+								.ContinueWith((_, _) => {
+										Logging.PostEvent(Translations.LocNotificationCreated
+											.Replace("$1", addModel.Code));
+										args.Session.Close(false);
+									}, null,
+									TaskScheduler.FromCurrentSynchronizationContext());
 						}
 					}
 				}
-				
-				/*
-
-				var account = addAccountViewModel.ToAccount();
-				if (account == null) {
-					return;
-				}
-
-				args.Session.UpdateContent(new PreloaderDialog());
-
-				if (Automation.AuthenticateWeb(account)) {
-					account.RefreshGameInformation().WaitAsync(CancellationToken.None);
-				}
-
-				Task.Delay(TimeSpan.FromSeconds(1))
-					.ContinueWith((t, _) => args.Session.Close(false), null,
-						TaskScheduler.FromCurrentSynchronizationContext());*/
 			});
 	}
 }

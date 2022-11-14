@@ -321,6 +321,33 @@ namespace HuTaoHelper.Core.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Notification target already exist.
+        /// </summary>
+        public static string LocNotificationAlreadyExist {
+            get {
+                return ResourceManager.GetString("LocNotificationAlreadyExist", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Notification code.
+        /// </summary>
+        public static string LocNotificationCode {
+            get {
+                return ResourceManager.GetString("LocNotificationCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Notification &quot;$1&quot; created.
+        /// </summary>
+        public static string LocNotificationCreated {
+            get {
+                return ResourceManager.GetString("LocNotificationCreated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Bot token.
         /// </summary>
         public static string LocNotificationTelegramBotToken {

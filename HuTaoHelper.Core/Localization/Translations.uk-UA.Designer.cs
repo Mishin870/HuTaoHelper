@@ -321,6 +321,33 @@ namespace HuTaoHelper.Core.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Повідомлення вже існує.
+        /// </summary>
+        public static string LocNotificationAlreadyExist {
+            get {
+                return ResourceManager.GetString("LocNotificationAlreadyExist", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Код повідомлення.
+        /// </summary>
+        public static string LocNotificationCode {
+            get {
+                return ResourceManager.GetString("LocNotificationCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Повідомлення &quot;$1&quot; створено.
+        /// </summary>
+        public static string LocNotificationCreated {
+            get {
+                return ResourceManager.GetString("LocNotificationCreated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Токен бота.
         /// </summary>
         public static string LocNotificationTelegramBotToken {

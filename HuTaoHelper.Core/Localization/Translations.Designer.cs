@@ -323,6 +323,33 @@ namespace HuTaoHelper.Core.Localization {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
+        public static string LocNotificationAlreadyExist {
+            get {
+                return ResourceManager.GetString("LocNotificationAlreadyExist", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string LocNotificationCode {
+            get {
+                return ResourceManager.GetString("LocNotificationCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string LocNotificationCreated {
+            get {
+                return ResourceManager.GetString("LocNotificationCreated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
         public static string LocNotificationTelegramBotToken {
             get {
                 return ResourceManager.GetString("LocNotificationTelegramBotToken", resourceCulture);
