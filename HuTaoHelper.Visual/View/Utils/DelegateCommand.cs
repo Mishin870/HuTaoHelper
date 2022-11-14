@@ -4,8 +4,8 @@ using System.Windows.Input;
 namespace HuTaoHelper.Visual.View.Utils;
 
 public class DelegateCommand : ICommand {
-	public Action CommandAction { get; init; } = null!;
-	public Func<bool>? CanExecuteFunc { get; init; }
+	public Action CommandAction { get; set; } = null!;
+	public Func<bool>? CanExecuteFunc { get; set; }
 
 	public void Execute(object? parameter) {
 		CommandAction();

@@ -186,6 +186,15 @@ namespace HuTaoHelper.Core.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ОЧИСТИТЬ.
+        /// </summary>
+        public static string LocDialogClear {
+            get {
+                return ResourceManager.GetString("LocDialogClear", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to УДАЛИТЬ.
         /// </summary>
         public static string LocDialogDelete {
@@ -245,6 +254,15 @@ namespace HuTaoHelper.Core.Localization {
         public static string LocMenuAutomationDailyCheckIn {
             get {
                 return ResourceManager.GetString("LocMenuAutomationDailyCheckIn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Изменить цель уведомлений.
+        /// </summary>
+        public static string LocMenuChangeNotificationTarget {
+            get {
+                return ResourceManager.GetString("LocMenuChangeNotificationTarget", resourceCulture);
             }
         }
         

@@ -10,6 +10,7 @@
              xmlns:utils="clr-namespace:HuTaoHelper.Visual.View.Utils"
              xmlns:notifications="clr-namespace:HuTaoHelper.Visual.Notifications"
              mc:Ignorable="d"
+             Loaded="NotificationTargetsDialog_OnLoaded"
              d:DataContext="{d:DesignInstance viewModels:NotificationTargetsViewModel, IsDesignTimeCreatable=False}"
              d:DesignHeight="320" d:DesignWidth="300">
     <Grid Margin="16">
@@ -51,10 +52,18 @@
                     Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"
                     IsCancel="True"
                     Style="{StaticResource MaterialDesignFlatButton}"
+                    Name="AddButton"
                     Content="{Binding Path=LocDialogAdd, Source={StaticResource Translations}}">
                 <Button.CommandParameter>
                     <utils:DialogExitCommand>ADD_NOTIFICATION_TARGET</utils:DialogExitCommand>
                 </Button.CommandParameter>
+            </Button>
+            <Button Margin="8,0,0,0"
+                    Command="{Binding ClearCommand}"
+                    IsCancel="True"
+                    Style="{StaticResource MaterialDesignFlatDangerButton}"
+                    Name="ClearButton"
+                    Content="{Binding Path=LocDialogClear, Source={StaticResource Translations}}">
             </Button>
             <Button Margin="8,0,0,0"
                     Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"

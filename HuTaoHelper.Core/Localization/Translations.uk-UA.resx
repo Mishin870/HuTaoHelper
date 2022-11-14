@@ -147,4 +147,10 @@
     <data name="LocNotificationRemoved" xml:space="preserve">
         <value>Повідомлення "$1" видалено</value>
     </data>
+    <data name="LocMenuChangeNotificationTarget" xml:space="preserve">
+        <value>Змінити мету повідомлень</value>
+    </data>
+    <data name="LocDialogClear" xml:space="preserve">
+        <value>ОЧИСТИТИ</value>
+    </data>
 </root>

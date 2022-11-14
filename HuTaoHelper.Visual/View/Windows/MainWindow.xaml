@@ -63,6 +63,14 @@
                                             </Style>
                                         </MenuItem.Style>
                                     </MenuItem>
+                                    <MenuItem Name="AccountChangeNotificationTargetMenu" Header="{Binding Path=LocMenuChangeNotificationTarget, Source={StaticResource Translations}}">
+                                        <MenuItem.Style>
+                                            <Style TargetType="MenuItem"
+                                                   BasedOn="{StaticResource MaterialDesignMenuItem}">
+                                                <EventSetter Event="Click" Handler="AccountChangeNotificationTargetMenu_OnClick" />
+                                            </Style>
+                                        </MenuItem.Style>
+                                    </MenuItem>
                                     <MenuItem Name="AccountReauthenticateMenu" Header="{Binding Path=LocMenuReauthenticate, Source={StaticResource Translations}}">
                                         <MenuItem.Style>
                                             <Style TargetType="MenuItem"

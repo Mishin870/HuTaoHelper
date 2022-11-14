@@ -147,4 +147,10 @@
     <data name="LocNotificationRemoved" xml:space="preserve">
         <value>Notification "$1" deleted</value>
     </data>
+    <data name="LocMenuChangeNotificationTarget" xml:space="preserve">
+        <value>Change notification target</value>
+    </data>
+    <data name="LocDialogClear" xml:space="preserve">
+        <value>CLEAR</value>
+    </data>
 </root>
